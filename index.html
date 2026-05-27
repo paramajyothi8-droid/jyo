@@ -133,7 +133,7 @@ outline:none;
 .user-icon{
 width:55px;
 height:55px;
-border-radius:50%;
+border-radius:18px;
 background:linear-gradient(45deg,#ff00cc,#6a00ff);
 display:flex;
 justify-content:center;
@@ -150,8 +150,8 @@ position:relative;
 position:absolute;
 top:70px;
 right:0;
-width:270px;
-background:white;
+width:280px;
+background:linear-gradient(135deg,#ffffff,#f3e8ff);
 border-radius:25px;
 padding:20px;
 display:none;
@@ -159,21 +159,23 @@ box-shadow:0 10px 35px rgba(0,0,0,0.4);
 z-index:100;
 }
 
-.user-top{
+.user-header{
 display:flex;
 align-items:center;
-margin-bottom:20px;
+margin-bottom:18px;
+padding-bottom:15px;
+border-bottom:1px solid #eee;
 }
 
 .user-avatar{
-width:55px;
-height:55px;
-border-radius:50%;
-background:#6a00f4;
+width:60px;
+height:60px;
+border-radius:18px;
+background:linear-gradient(45deg,#ff00cc,#6a00ff);
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:25px;
+font-size:28px;
 color:white;
 margin-right:12px;
 }
@@ -181,51 +183,82 @@ margin-right:12px;
 .user-name{
 font-size:18px;
 font-weight:bold;
+color:#222;
 }
 
 .user-number{
 font-size:13px;
 color:gray;
-margin-top:3px;
+margin-top:4px;
 }
 
 .user-menu{
 display:flex;
 flex-direction:column;
-gap:10px;
+gap:12px;
 }
 
 .menu-item{
-background:#f3f3f3;
+background:white;
 padding:14px;
-border-radius:14px;
+border-radius:16px;
 font-weight:bold;
+color:#444;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
 cursor:pointer;
+}
+
+.logout{
+background:#ffebee;
+color:red;
+}
+
+/* LOCATION */
+
+.flipkart-location{
+background:white;
+padding:14px;
+border-radius:18px;
+display:flex;
+align-items:center;
+margin-bottom:18px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.location-left{
+width:42px;
+height:42px;
+border-radius:12px;
+background:#f3e8ff;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+margin-right:12px;
+}
+
+.deliver-text{
+font-size:12px;
+color:gray;
+margin-bottom:3px;
+}
+
+.location-name{
+font-size:15px;
+font-weight:bold;
+color:#6a00f4;
 }
 
 /* HEADER */
 
 .header{
 color:white;
-margin-bottom:12px;
+margin-bottom:18px;
 }
 
 .header h1{
 font-size:32px;
-margin-bottom:5px;
-}
-
-/* LOCATION */
-
-.location-box{
-background:white;
-padding:14px;
-border-radius:18px;
-margin-bottom:18px;
-font-weight:bold;
-color:#6a00f4;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+margin-bottom:6px;
 }
 
 /* PRODUCTS */
@@ -249,9 +282,9 @@ padding-bottom:25px;
 
 .card{
 width:190px;
-height:295px;
+height:300px;
 background:white;
-border-radius:25px;
+border-radius:26px;
 overflow:hidden;
 flex-shrink:0;
 box-shadow:0 8px 25px rgba(0,0,0,0.3);
@@ -260,7 +293,7 @@ cursor:pointer;
 
 .card img{
 width:100%;
-height:200px;
+height:205px;
 object-fit:cover;
 }
 
@@ -270,8 +303,8 @@ padding:14px;
 
 .card-content h3{
 font-size:18px;
-color:#6a00f4;
 margin-bottom:10px;
+color:#6a00f4;
 }
 
 .price{
@@ -474,7 +507,7 @@ Create New Account?
 
 <div class="user-card" id="userCard">
 
-<div class="user-top">
+<div class="user-header">
 
 <div class="user-avatar">
 👑
@@ -499,7 +532,7 @@ Create New Account?
 
 <div class="menu-item">⚙ Settings</div>
 
-<div class="menu-item" onclick="logout()">🚪 Logout</div>
+<div class="menu-item logout" onclick="logout()">🚪 Logout</div>
 
 </div>
 
@@ -508,14 +541,34 @@ Create New Account?
 </div>
 
 </div>
+
+<!-- LOCATION -->
+
+<div class="flipkart-location">
+
+<div class="location-left">
+📍
+</div>
+
+<div>
+
+<div class="deliver-text">
+Deliver To
+</div>
+
+<div class="location-name">
+Tanuku, Andhra Pradesh - 534211
+</div>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
 
 <div class="header">
 <h1>💍 Royal Jewellery</h1>
 <p>Luxury Collections</p>
-</div>
-
-<div class="location-box">
-📍 Tanuku, Andhra Pradesh
 </div>
 
 <!-- PRODUCTS -->
@@ -524,15 +577,13 @@ Create New Account?
 
 <div class="products">
 
-<!-- PRODUCT -->
-
 <div class="card" onclick="openProduct(
 'Gold Chains',
 '₹49,999',
 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'22K Gold',
+'22K Pure Gold',
 'Wedding Collection',
-'25 Gram Weight',
+'Premium Finish',
 'Lifetime Polish'
 )">
 
@@ -551,7 +602,7 @@ Create New Account?
 'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
 'Certified Diamond',
 'Luxury Ring',
-'Premium Finish',
+'Premium Shine',
 'Party Wear'
 )">
 
@@ -560,25 +611,6 @@ Create New Account?
 <div class="card-content">
 <h3>Diamond Rings</h3>
 <div class="price">₹29,999</div>
-</div>
-
-</div>
-
-<div class="card" onclick="openProduct(
-'Silver Bracelets',
-'₹9,999',
-'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
-'Pure Silver',
-'Modern Design',
-'Premium Finish',
-'Stylish Collection'
-)">
-
-<img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
-
-<div class="card-content">
-<h3>Silver Bracelets</h3>
-<div class="price">₹9,999</div>
 </div>
 
 </div>
@@ -622,11 +654,30 @@ Create New Account?
 </div>
 
 <div class="card" onclick="openProduct(
+'Silver Bracelets',
+'₹9,999',
+'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
+'Pure Silver',
+'Luxury Collection',
+'Modern Design',
+'Premium Finish'
+)">
+
+<img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Silver Bracelets</h3>
+<div class="price">₹9,999</div>
+</div>
+
+</div>
+
+<div class="card" onclick="openProduct(
 'Pearl Necklace',
 '₹19,999',
 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
 'Luxury Pearl',
-'Premium Collection',
+'Premium Necklace',
 'Stylish Design',
 'Party Wear'
 )">
@@ -821,7 +872,7 @@ alert("Invalid Email Or Password");
 
 }
 
-/* USER */
+/* USER CARD */
 
 function toggleUser(){
 
@@ -883,19 +934,17 @@ document.getElementById("detailsPage").style.display="block";
 
 }
 
-/* PRODUCT DRAG MOVE */
+/* DRAG SLIDER */
 
 const slider=document.getElementById("slider");
 
-let pressed=false;
-
+let isPressed=false;
 let startX;
-
 let scrollLeft;
 
 slider.addEventListener("mousedown",(e)=>{
 
-pressed=true;
+isPressed=true;
 
 startX=e.pageX-slider.offsetLeft;
 
@@ -905,19 +954,19 @@ scrollLeft=slider.scrollLeft;
 
 slider.addEventListener("mouseleave",()=>{
 
-pressed=false;
+isPressed=false;
 
 });
 
 slider.addEventListener("mouseup",()=>{
 
-pressed=false;
+isPressed=false;
 
 });
 
 slider.addEventListener("mousemove",(e)=>{
 
-if(!pressed) return;
+if(!isPressed) return;
 
 e.preventDefault();
 
