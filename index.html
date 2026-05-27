@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Royal Jewellery</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -107,7 +107,7 @@ overflow:auto;
 padding:15px;
 }
 
-/* TOP */
+/* TOP BAR */
 
 .top-bar{
 display:flex;
@@ -130,6 +130,8 @@ font-size:15px;
 outline:none;
 }
 
+/* USER ICON */
+
 .user-icon{
 width:55px;
 height:55px;
@@ -150,7 +152,7 @@ position:relative;
 position:absolute;
 top:70px;
 right:0;
-width:280px;
+width:290px;
 background:white;
 border-radius:25px;
 padding:20px;
@@ -239,13 +241,13 @@ font-size:32px;
 margin-bottom:6px;
 }
 
-/* LOCATION SLIDER */
+/* LOCATION */
 
 .location-slider{
 display:flex;
 gap:12px;
 overflow-x:auto;
-padding-bottom:10px;
+padding-bottom:12px;
 margin-bottom:20px;
 scroll-behavior:smooth;
 }
@@ -255,14 +257,15 @@ display:none;
 }
 
 .location-box{
-min-width:120px;
+min-width:220px;
 background:white;
 padding:14px;
 border-radius:18px;
-text-align:center;
 font-weight:bold;
 color:#6a00f4;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
+flex-shrink:0;
 }
 
 /* PRODUCTS */
@@ -280,23 +283,19 @@ display:none;
 .products{
 display:flex;
 gap:18px;
-width:max-content;
 padding-bottom:20px;
+width:max-content;
 }
 
 .card{
 width:190px;
+height:290px;
 background:white;
 border-radius:25px;
 overflow:hidden;
+flex-shrink:0;
 box-shadow:0 8px 25px rgba(0,0,0,0.3);
 cursor:pointer;
-transition:0.3s;
-flex-shrink:0;
-}
-
-.card:hover{
-transform:scale(1.03);
 }
 
 .card img{
@@ -377,8 +376,6 @@ line-height:1.8;
 color:#555;
 margin-bottom:20px;
 }
-
-/* RELATED PRODUCTS */
 
 .related-title{
 margin-top:20px;
@@ -502,7 +499,7 @@ Create New Account?
 
 </div>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 
 <div id="detailsPage">
 
@@ -525,13 +522,18 @@ Create New Account?
 </div>
 
 <div>
-<div class="user-name">Royal User</div>
+<div class="user-name">Parama Jyothi</div>
 <div class="user-role">Premium Member</div>
 </div>
 
 </div>
 
 <div class="user-info">
+
+<div class="info-box">
+<h4>Mobile</h4>
+<p>9876543210</p>
+</div>
 
 <div class="info-box">
 <h4>Orders</h4>
@@ -541,11 +543,6 @@ Create New Account?
 <div class="info-box">
 <h4>Wishlist</h4>
 <p>12</p>
-</div>
-
-<div class="info-box">
-<h4>Points</h4>
-<p>5200</p>
 </div>
 
 <div class="info-box">
@@ -570,16 +567,29 @@ Logout
 <p>Luxury Collections</p>
 </div>
 
-<!-- LOCATION SLIDER -->
+<!-- LOCATION -->
 
-<div class="location-slider">
+<div class="location-slider" id="locationSlider">
 
-<div class="location-box">📍 Hyderabad</div>
-<div class="location-box">📍 Mumbai</div>
-<div class="location-box">📍 Delhi</div>
-<div class="location-box">📍 Chennai</div>
-<div class="location-box">📍 Bangalore</div>
-<div class="location-box">📍 Pune</div>
+<div class="location-box">
+📍 Tanuku, Andhra Pradesh
+</div>
+
+<div class="location-box">
+📍 Razole, Andhra Pradesh
+</div>
+
+<div class="location-box">
+📍 Vijayawada, Andhra Pradesh
+</div>
+
+<div class="location-box">
+📍 Hyderabad, Telangana
+</div>
+
+<div class="location-box">
+📍 Chennai, Tamil Nadu
+</div>
 
 </div>
 
@@ -589,15 +599,13 @@ Logout
 
 <div class="products">
 
-<!-- CARD -->
-
 <div class="card" onclick="openProduct(
 'Gold Chains',
 '₹49,999',
 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'22K Gold Chain',
-'Premium Wedding Collection',
-'25g Gold Weight',
+'22K Pure Gold',
+'Wedding Collection',
+'25 Gram Weight',
 'Lifetime Polish'
 )">
 
@@ -615,9 +623,9 @@ Logout
 '₹29,999',
 'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
 'Certified Diamond',
-'Luxury Ring Collection',
-'Elegant Premium Finish',
-'Party Wear Collection'
+'Luxury Ring',
+'Premium Finish',
+'Party Wear'
 )">
 
 <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop">
@@ -634,9 +642,9 @@ Logout
 '₹9,999',
 'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
 'Pure Silver',
-'Luxury Bracelet',
-'Modern Design',
-'Premium Collection'
+'Luxury Design',
+'Modern Collection',
+'Premium Finish'
 )">
 
 <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
@@ -652,10 +660,10 @@ Logout
 'Royal Earrings',
 '₹15,999',
 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-'Gold Earrings',
-'Wedding Special',
-'Party Wear',
-'Trending Design'
+'Premium Earrings',
+'Wedding Collection',
+'Trending Design',
+'Party Wear'
 )">
 
 <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop">
@@ -671,9 +679,9 @@ Logout
 'Luxury Bangles',
 '₹24,999',
 'https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop',
-'22K Gold Bangles',
-'Festival Collection',
+'22K Gold',
 'Traditional Design',
+'Festival Collection',
 'Premium Finish'
 )">
 
@@ -756,11 +764,13 @@ Purchase Now
 
 /* SUPABASE */
 
-const SUPABASE_URL="https://jopcbkfxgbnstflualez.supabase.co";
+const SUPABASE_URL =
+"https://jopcbkfxgbnstflualez.supabase.co";
 
-const SUPABASE_ANON_KEY="sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
+const SUPABASE_ANON_KEY =
+"sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
 
-const client=supabase.createClient(
+const client = supabase.createClient(
 SUPABASE_URL,
 SUPABASE_ANON_KEY
 );
@@ -770,6 +780,7 @@ SUPABASE_ANON_KEY
 function showLogin(){
 
 document.getElementById("signupPage").style.display="none";
+
 document.getElementById("loginPage").style.display="block";
 
 }
@@ -777,6 +788,7 @@ document.getElementById("loginPage").style.display="block";
 function showSignup(){
 
 document.getElementById("loginPage").style.display="none";
+
 document.getElementById("signupPage").style.display="block";
 
 }
@@ -790,21 +802,27 @@ showLogin();
 async function login(){
 
 document.getElementById("signupPage").style.display="none";
+
 document.getElementById("loginPage").style.display="none";
+
 document.getElementById("detailsPage").style.display="block";
 
 }
 
-/* USER */
+/* USER CARD */
 
 function toggleUser(){
 
 const card=document.getElementById("userCard");
 
 if(card.style.display==="block"){
+
 card.style.display="none";
+
 }else{
+
 card.style.display="block";
+
 }
 
 }
@@ -814,6 +832,7 @@ card.style.display="block";
 function logout(){
 
 document.getElementById("detailsPage").style.display="none";
+
 document.getElementById("loginPage").style.display="block";
 
 }
@@ -852,7 +871,7 @@ document.getElementById("detailsPage").style.display="block";
 
 }
 
-/* SLIDE MOVE */
+/* PRODUCT DRAG */
 
 const slider=document.getElementById("slider");
 
@@ -915,6 +934,78 @@ const x=e.touches[0].pageX-slider.offsetLeft;
 const walk=(x-startX)*2;
 
 slider.scrollLeft=scrollLeft-walk;
+
+});
+
+/* LOCATION DRAG */
+
+const locationSlider=
+document.getElementById("locationSlider");
+
+let isLocationDown=false;
+
+let locationStartX;
+
+let locationScrollLeft;
+
+locationSlider.addEventListener("mousedown",(e)=>{
+
+isLocationDown=true;
+
+locationStartX=e.pageX-locationSlider.offsetLeft;
+
+locationScrollLeft=locationSlider.scrollLeft;
+
+});
+
+locationSlider.addEventListener("mouseleave",()=>{
+
+isLocationDown=false;
+
+});
+
+locationSlider.addEventListener("mouseup",()=>{
+
+isLocationDown=false;
+
+});
+
+locationSlider.addEventListener("mousemove",(e)=>{
+
+if(!isLocationDown) return;
+
+e.preventDefault();
+
+const x=e.pageX-locationSlider.offsetLeft;
+
+const walk=(x-locationStartX)*2;
+
+locationSlider.scrollLeft=
+locationScrollLeft-walk;
+
+});
+
+/* MOBILE TOUCH */
+
+locationSlider.addEventListener("touchstart",(e)=>{
+
+locationStartX=
+e.touches[0].pageX-locationSlider.offsetLeft;
+
+locationScrollLeft=
+locationSlider.scrollLeft;
+
+});
+
+locationSlider.addEventListener("touchmove",(e)=>{
+
+const x=
+e.touches[0].pageX-locationSlider.offsetLeft;
+
+const walk=(x-locationStartX)*2;
+
+locationSlider.scrollLeft=
+locationScrollLeft-walk;
 
 });
 
