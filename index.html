@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Royal Jewellery</title>
 
-<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -103,17 +102,17 @@ display:none;
 #detailsPage{
 display:none;
 height:100vh;
+overflow:auto;
 padding:15px;
-overflow:hidden;
 }
 
-/* TOP BAR */
+/* TOP */
 
 .top-bar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .search-box{
@@ -130,8 +129,6 @@ font-size:15px;
 outline:none;
 }
 
-/* USER ICON */
-
 .user-icon{
 width:55px;
 height:55px;
@@ -146,56 +143,128 @@ cursor:pointer;
 position:relative;
 }
 
-.user-popup{
+/* USER CARD */
+
+.user-card{
 position:absolute;
 top:70px;
 right:0;
-width:270px;
+width:280px;
 background:white;
-padding:20px;
 border-radius:25px;
+padding:20px;
 display:none;
-box-shadow:0 10px 35px rgba(0,0,0,0.4);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 z-index:100;
 }
 
-.user-popup h2{
-color:#6a00f4;
-margin-bottom:15px;
+.user-top{
+display:flex;
+align-items:center;
+margin-bottom:20px;
 }
 
-.user-popup p{
-margin-bottom:10px;
+.user-avatar{
+width:60px;
+height:60px;
+border-radius:50%;
+background:linear-gradient(45deg,#ff00cc,#6a00ff);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+color:white;
+margin-right:12px;
+}
+
+.user-name{
+font-size:18px;
+font-weight:bold;
+color:#6a00f4;
+}
+
+.user-role{
+font-size:13px;
+color:gray;
+}
+
+.user-info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.info-box{
+background:#f4f4f4;
+padding:12px;
+border-radius:14px;
+text-align:center;
+}
+
+.info-box h4{
+font-size:12px;
+color:gray;
+margin-bottom:5px;
+}
+
+.info-box p{
+font-weight:bold;
+color:#6a00f4;
 font-size:14px;
-color:#444;
 }
 
 .logout-btn{
 width:100%;
 padding:12px;
+margin-top:18px;
 border:none;
-border-radius:12px;
+border-radius:14px;
 background:red;
 color:white;
+font-size:15px;
 font-weight:bold;
 cursor:pointer;
-margin-top:10px;
 }
 
 /* HEADER */
 
 .header{
-text-align:center;
 color:white;
-margin-bottom:20px;
+margin-bottom:18px;
 }
 
 .header h1{
-font-size:34px;
-margin-bottom:5px;
+font-size:32px;
+margin-bottom:6px;
 }
 
-/* SLIDER */
+/* LOCATION SLIDER */
+
+.location-slider{
+display:flex;
+gap:12px;
+overflow-x:auto;
+padding-bottom:10px;
+margin-bottom:20px;
+scroll-behavior:smooth;
+}
+
+.location-slider::-webkit-scrollbar{
+display:none;
+}
+
+.location-box{
+min-width:120px;
+background:white;
+padding:14px;
+border-radius:18px;
+text-align:center;
+font-weight:bold;
+color:#6a00f4;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* PRODUCTS */
 
 .slider-container{
 overflow-x:auto;
@@ -214,16 +283,15 @@ width:max-content;
 padding-bottom:20px;
 }
 
-/* CARD */
-
 .card{
-min-width:240px;
+width:190px;
 background:white;
 border-radius:25px;
 overflow:hidden;
 box-shadow:0 8px 25px rgba(0,0,0,0.3);
 cursor:pointer;
 transition:0.3s;
+flex-shrink:0;
 }
 
 .card:hover{
@@ -232,16 +300,17 @@ transform:scale(1.03);
 
 .card img{
 width:100%;
-height:240px;
+height:190px;
 object-fit:cover;
 }
 
 .card-content{
-padding:15px;
+padding:14px;
 }
 
 .card-content h3{
 color:#6a00f4;
+font-size:17px;
 margin-bottom:10px;
 }
 
@@ -257,32 +326,32 @@ color:#ff0080;
 display:none;
 height:100vh;
 overflow:auto;
-padding:20px;
+padding:18px;
 }
 
 .back-btn{
 padding:12px 18px;
 border:none;
-border-radius:12px;
+border-radius:14px;
 background:white;
 color:#6a00f4;
 font-weight:bold;
-cursor:pointer;
 margin-bottom:20px;
+cursor:pointer;
 }
 
 .product-details{
-max-width:450px;
-margin:auto;
 background:white;
 border-radius:30px;
 overflow:hidden;
+max-width:450px;
+margin:auto;
 box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .product-details img{
 width:100%;
-height:350px;
+height:330px;
 object-fit:cover;
 }
 
@@ -296,7 +365,7 @@ margin-bottom:10px;
 }
 
 .product-price{
-font-size:28px;
+font-size:30px;
 font-weight:bold;
 color:#ff0080;
 margin-bottom:15px;
@@ -306,6 +375,46 @@ margin-bottom:15px;
 line-height:1.8;
 color:#555;
 margin-bottom:20px;
+}
+
+/* RELATED PRODUCTS */
+
+.related-title{
+margin-top:20px;
+margin-bottom:15px;
+font-size:20px;
+color:#6a00f4;
+font-weight:bold;
+}
+
+.related-products{
+display:flex;
+gap:12px;
+overflow-x:auto;
+}
+
+.related-products::-webkit-scrollbar{
+display:none;
+}
+
+.related-card{
+min-width:130px;
+background:#f4f4f4;
+border-radius:18px;
+overflow:hidden;
+}
+
+.related-card img{
+width:100%;
+height:120px;
+object-fit:cover;
+}
+
+.related-card p{
+padding:10px;
+font-size:13px;
+font-weight:bold;
+text-align:center;
 }
 
 .buy-btn{
@@ -318,6 +427,7 @@ color:white;
 font-size:18px;
 font-weight:bold;
 cursor:pointer;
+margin-top:20px;
 }
 
 </style>
@@ -405,18 +515,44 @@ Create New Account?
 
 👤
 
-<div class="user-popup" id="popup">
+<div class="user-card" id="userCard">
 
-<h2>👑 Premium User</h2>
+<div class="user-top">
 
-<p><b>Name:</b> Royal Customer</p>
-<p><b>Email:</b> royal@gmail.com</p>
-<p><b>Membership:</b> Gold Premium</p>
-<p><b>Orders:</b> 15 Completed</p>
-<p><b>Wishlist:</b> 12 Items</p>
-<p><b>Reward Points:</b> 6,500</p>
-<p><b>Location:</b> India</p>
-<p><b>Status:</b> Active</p>
+<div class="user-avatar">
+👑
+</div>
+
+<div>
+<div class="user-name">Royal User</div>
+<div class="user-role">Premium Member</div>
+</div>
+
+</div>
+
+<div class="user-info">
+
+<div class="info-box">
+<h4>Orders</h4>
+<p>18</p>
+</div>
+
+<div class="info-box">
+<h4>Wishlist</h4>
+<p>12</p>
+</div>
+
+<div class="info-box">
+<h4>Points</h4>
+<p>5200</p>
+</div>
+
+<div class="info-box">
+<h4>Status</h4>
+<p>Gold</p>
+</div>
+
+</div>
 
 <button class="logout-btn" onclick="logout()">
 Logout
@@ -430,88 +566,95 @@ Logout
 
 <div class="header">
 <h1>💍 Royal Jewellery</h1>
-<p>Drag Products Left / Right →</p>
+<p>Luxury Collections</p>
 </div>
 
-<!-- SLIDER -->
+<!-- LOCATION SLIDER -->
+
+<div class="location-slider">
+
+<div class="location-box">📍 Hyderabad</div>
+<div class="location-box">📍 Mumbai</div>
+<div class="location-box">📍 Delhi</div>
+<div class="location-box">📍 Chennai</div>
+<div class="location-box">📍 Bangalore</div>
+<div class="location-box">📍 Pune</div>
+
+</div>
+
+<!-- PRODUCTS -->
 
 <div class="slider-container" id="slider">
 
 <div class="products">
 
-<!-- PRODUCT 1 -->
+<!-- CARD -->
 
 <div class="card" onclick="openProduct(
-'Gold Necklace',
+'Gold Chains',
 '₹49,999',
 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'22K Pure Gold Necklace',
-'Wedding Collection',
-'25 Grams Weight',
+'22K Gold Chain',
+'Premium Wedding Collection',
+'25g Gold Weight',
 'Lifetime Polish'
 )">
 
 <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
 
 <div class="card-content">
-<h3>Gold Necklace</h3>
+<h3>Gold Chains</h3>
 <div class="price">₹49,999</div>
 </div>
 
 </div>
 
-<!-- PRODUCT 2 -->
-
 <div class="card" onclick="openProduct(
-'Diamond Ring',
+'Diamond Rings',
 '₹29,999',
 'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
-'Luxury Diamond Ring',
 'Certified Diamond',
-'Elegant Finish',
-'Premium Quality'
+'Luxury Ring Collection',
+'Elegant Premium Finish',
+'Party Wear Collection'
 )">
 
 <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop">
 
 <div class="card-content">
-<h3>Diamond Ring</h3>
+<h3>Diamond Rings</h3>
 <div class="price">₹29,999</div>
 </div>
 
 </div>
 
-<!-- PRODUCT 3 -->
-
 <div class="card" onclick="openProduct(
-'Silver Bracelet',
+'Silver Bracelets',
 '₹9,999',
 'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
-'Pure Silver Bracelet',
-'Modern Collection',
-'Luxury Finish',
-'Stylish Design'
+'Pure Silver',
+'Luxury Bracelet',
+'Modern Design',
+'Premium Collection'
 )">
 
 <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
 
 <div class="card-content">
-<h3>Silver Bracelet</h3>
+<h3>Silver Bracelets</h3>
 <div class="price">₹9,999</div>
 </div>
 
 </div>
 
-<!-- PRODUCT 4 -->
-
 <div class="card" onclick="openProduct(
 'Royal Earrings',
 '₹15,999',
 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-'Premium Earrings',
+'Gold Earrings',
+'Wedding Special',
 'Party Wear',
-'Gold Finish',
-'Luxury Shine'
+'Trending Design'
 )">
 
 <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop">
@@ -523,36 +666,13 @@ Logout
 
 </div>
 
-<!-- PRODUCT 5 -->
-
-<div class="card" onclick="openProduct(
-'Diamond Chain',
-'₹39,999',
-'https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=800&auto=format&fit=crop',
-'Luxury Diamond Chain',
-'Wedding Special',
-'Premium Shine',
-'Elegant Design'
-)">
-
-<img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=800&auto=format&fit=crop">
-
-<div class="card-content">
-<h3>Diamond Chain</h3>
-<div class="price">₹39,999</div>
-</div>
-
-</div>
-
-<!-- PRODUCT 6 -->
-
 <div class="card" onclick="openProduct(
 'Luxury Bangles',
 '₹24,999',
 'https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop',
 '22K Gold Bangles',
-'Traditional Collection',
-'Festival Wear',
+'Festival Collection',
+'Traditional Design',
 'Premium Finish'
 )">
 
@@ -571,7 +691,7 @@ Logout
 
 </div>
 
-<!-- PRODUCT DETAILS -->
+<!-- PRODUCT PAGE -->
 
 <div id="productPage">
 
@@ -598,6 +718,29 @@ Logout
 
 </div>
 
+<div class="related-title">
+Related Products
+</div>
+
+<div class="related-products">
+
+<div class="related-card">
+<img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
+<p>Gold Chain 1</p>
+</div>
+
+<div class="related-card">
+<img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
+<p>Gold Chain 2</p>
+</div>
+
+<div class="related-card">
+<img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
+<p>Gold Chain 3</p>
+</div>
+
+</div>
+
 <button class="buy-btn">
 Purchase Now
 </button>
@@ -610,124 +753,58 @@ Purchase Now
 
 <script>
 
-/* ======================
-SUPABASE
-====================== */
+/* SUPABASE */
 
-const SUPABASE_URL = "https://jopcbkfxgbnstflualez.supabase.co";
+const SUPABASE_URL="https://jopcbkfxgbnstflualez.supabase.co";
 
-const SUPABASE_ANON_KEY = "sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
+const SUPABASE_ANON_KEY="sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
 
-const client = supabase.createClient(
+const client=supabase.createClient(
 SUPABASE_URL,
 SUPABASE_ANON_KEY
 );
 
-/* SHOW LOGIN */
+/* LOGIN */
 
 function showLogin(){
 
 document.getElementById("signupPage").style.display="none";
-
 document.getElementById("loginPage").style.display="block";
 
 }
 
-/* SHOW SIGNUP */
-
 function showSignup(){
 
 document.getElementById("loginPage").style.display="none";
-
 document.getElementById("signupPage").style.display="block";
 
 }
 
-/* SIGNUP */
-
 async function signup(){
-
-const name=document.getElementById("signupName").value;
-
-const email=document.getElementById("signupEmail").value;
-
-const password=document.getElementById("signupPassword").value;
-
-const mobile=document.getElementById("signupMobile").value;
-
-if(name==="" || email==="" || password==="" || mobile===""){
-
-alert("Fill All Fields");
-
-return;
-
-}
-
-const { error } = await client
-.from("users")
-.insert([
-{
-full_name:name,
-email:email,
-password:password,
-mobile:mobile
-}
-]);
-
-if(!error){
-
-alert("Signup Successful");
 
 showLogin();
 
-}else{
-
-alert("Signup Failed");
-
 }
-
-}
-
-/* LOGIN */
 
 async function login(){
 
-const email=document.getElementById("loginEmail").value;
-
-const password=document.getElementById("loginPassword").value;
-
-const { data } = await client
-.from("users")
-.select("*")
-.eq("email",email)
-.eq("password",password);
-
-if(data && data.length > 0){
-
-document.getElementById("loginPage").style.display="none";
-
 document.getElementById("signupPage").style.display="none";
-
+document.getElementById("loginPage").style.display="none";
 document.getElementById("detailsPage").style.display="block";
 
-}else{
-
-alert("Invalid Email Or Password");
-
 }
 
-}
-
-/* USER POPUP */
+/* USER */
 
 function toggleUser(){
 
-let popup=document.getElementById("popup");
+const card=document.getElementById("userCard");
 
-popup.style.display=
-popup.style.display==="block"
-? "none"
-: "block";
+if(card.style.display==="block"){
+card.style.display="none";
+}else{
+card.style.display="block";
+}
 
 }
 
@@ -736,14 +813,11 @@ popup.style.display==="block"
 function logout(){
 
 document.getElementById("detailsPage").style.display="none";
-
-document.getElementById("productPage").style.display="none";
-
 document.getElementById("loginPage").style.display="block";
 
 }
 
-/* PRODUCT PAGE */
+/* PRODUCT */
 
 function openProduct(title,price,image,d1,d2,d3,d4){
 
@@ -777,7 +851,7 @@ document.getElementById("detailsPage").style.display="block";
 
 }
 
-/* DRAG SLIDER */
+/* SLIDE MOVE */
 
 const slider=document.getElementById("slider");
 
@@ -791,8 +865,6 @@ slider.addEventListener("mousedown",(e)=>{
 
 isDown=true;
 
-slider.style.cursor="grabbing";
-
 startX=e.pageX-slider.offsetLeft;
 
 scrollLeft=slider.scrollLeft;
@@ -803,15 +875,11 @@ slider.addEventListener("mouseleave",()=>{
 
 isDown=false;
 
-slider.style.cursor="grab";
-
 });
 
 slider.addEventListener("mouseup",()=>{
 
 isDown=false;
-
-slider.style.cursor="grab";
 
 });
 
@@ -833,7 +901,7 @@ slider.scrollLeft=scrollLeft-walk;
 
 slider.addEventListener("touchstart",(e)=>{
 
-startX=e.touches[0].pageX;
+startX=e.touches[0].pageX-slider.offsetLeft;
 
 scrollLeft=slider.scrollLeft;
 
@@ -841,7 +909,7 @@ scrollLeft=slider.scrollLeft;
 
 slider.addEventListener("touchmove",(e)=>{
 
-const x=e.touches[0].pageX;
+const x=e.touches[0].pageX-slider.offsetLeft;
 
 const walk=(x-startX)*2;
 
