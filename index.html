@@ -130,8 +130,6 @@ font-size:15px;
 outline:none;
 }
 
-/* USER ICON */
-
 .user-icon{
 width:55px;
 height:55px;
@@ -152,12 +150,12 @@ position:relative;
 position:absolute;
 top:70px;
 right:0;
-width:290px;
+width:270px;
 background:white;
 border-radius:25px;
 padding:20px;
 display:none;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+box-shadow:0 10px 35px rgba(0,0,0,0.4);
 z-index:100;
 }
 
@@ -168,14 +166,14 @@ margin-bottom:20px;
 }
 
 .user-avatar{
-width:60px;
-height:60px;
+width:55px;
+height:55px;
 border-radius:50%;
-background:linear-gradient(45deg,#ff00cc,#6a00ff);
+background:#6a00f4;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:28px;
+font-size:25px;
 color:white;
 margin-right:12px;
 }
@@ -183,48 +181,24 @@ margin-right:12px;
 .user-name{
 font-size:18px;
 font-weight:bold;
-color:#6a00f4;
 }
 
-.user-role{
+.user-number{
 font-size:13px;
 color:gray;
+margin-top:3px;
 }
 
-.user-info{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+.user-menu{
+display:flex;
+flex-direction:column;
+gap:10px;
 }
 
-.info-box{
-background:#f4f4f4;
-padding:12px;
+.menu-item{
+background:#f3f3f3;
+padding:14px;
 border-radius:14px;
-text-align:center;
-}
-
-.info-box h4{
-font-size:12px;
-color:gray;
-margin-bottom:5px;
-}
-
-.info-box p{
-font-weight:bold;
-color:#6a00f4;
-font-size:14px;
-}
-
-.logout-btn{
-width:100%;
-padding:12px;
-margin-top:18px;
-border:none;
-border-radius:14px;
-background:red;
-color:white;
-font-size:15px;
 font-weight:bold;
 cursor:pointer;
 }
@@ -233,39 +207,25 @@ cursor:pointer;
 
 .header{
 color:white;
-margin-bottom:18px;
+margin-bottom:12px;
 }
 
 .header h1{
 font-size:32px;
-margin-bottom:6px;
+margin-bottom:5px;
 }
 
 /* LOCATION */
 
-.location-slider{
-display:flex;
-gap:12px;
-overflow-x:auto;
-padding-bottom:12px;
-margin-bottom:20px;
-scroll-behavior:smooth;
-}
-
-.location-slider::-webkit-scrollbar{
-display:none;
-}
-
 .location-box{
-min-width:220px;
 background:white;
 padding:14px;
 border-radius:18px;
+margin-bottom:18px;
 font-weight:bold;
 color:#6a00f4;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
 text-align:center;
-flex-shrink:0;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 /* PRODUCTS */
@@ -283,13 +243,13 @@ display:none;
 .products{
 display:flex;
 gap:18px;
-padding-bottom:20px;
 width:max-content;
+padding-bottom:25px;
 }
 
 .card{
 width:190px;
-height:290px;
+height:295px;
 background:white;
 border-radius:25px;
 overflow:hidden;
@@ -300,7 +260,7 @@ cursor:pointer;
 
 .card img{
 width:100%;
-height:190px;
+height:200px;
 object-fit:cover;
 }
 
@@ -309,8 +269,8 @@ padding:14px;
 }
 
 .card-content h3{
+font-size:18px;
 color:#6a00f4;
-font-size:17px;
 margin-bottom:10px;
 }
 
@@ -336,7 +296,7 @@ border-radius:14px;
 background:white;
 color:#6a00f4;
 font-weight:bold;
-margin-bottom:20px;
+margin-bottom:18px;
 cursor:pointer;
 }
 
@@ -351,7 +311,7 @@ box-shadow:0 10px 35px rgba(0,0,0,0.4);
 
 .product-details img{
 width:100%;
-height:330px;
+height:340px;
 object-fit:cover;
 }
 
@@ -374,15 +334,14 @@ margin-bottom:15px;
 .product-description{
 line-height:1.8;
 color:#555;
-margin-bottom:20px;
 }
 
 .related-title{
-margin-top:20px;
-margin-bottom:15px;
 font-size:20px;
-color:#6a00f4;
 font-weight:bold;
+margin-top:20px;
+margin-bottom:12px;
+color:#6a00f4;
 }
 
 .related-products{
@@ -410,9 +369,9 @@ object-fit:cover;
 
 .related-card p{
 padding:10px;
-font-size:13px;
-font-weight:bold;
 text-align:center;
+font-weight:bold;
+font-size:13px;
 }
 
 .buy-btn{
@@ -523,38 +482,26 @@ Create New Account?
 
 <div>
 <div class="user-name">Parama Jyothi</div>
-<div class="user-role">Premium Member</div>
+<div class="user-number">+91 9876543210</div>
 </div>
 
 </div>
 
-<div class="user-info">
+<div class="user-menu">
 
-<div class="info-box">
-<h4>Mobile</h4>
-<p>9876543210</p>
-</div>
+<div class="menu-item">🛍 My Orders</div>
 
-<div class="info-box">
-<h4>Orders</h4>
-<p>18</p>
-</div>
+<div class="menu-item">❤ Wishlist</div>
 
-<div class="info-box">
-<h4>Wishlist</h4>
-<p>12</p>
-</div>
+<div class="menu-item">📦 Saved Address</div>
 
-<div class="info-box">
-<h4>Status</h4>
-<p>Gold</p>
-</div>
+<div class="menu-item">💎 Super Coins</div>
+
+<div class="menu-item">⚙ Settings</div>
+
+<div class="menu-item" onclick="logout()">🚪 Logout</div>
 
 </div>
-
-<button class="logout-btn" onclick="logout()">
-Logout
-</button>
 
 </div>
 
@@ -567,30 +514,8 @@ Logout
 <p>Luxury Collections</p>
 </div>
 
-<!-- LOCATION -->
-
-<div class="location-slider" id="locationSlider">
-
 <div class="location-box">
 📍 Tanuku, Andhra Pradesh
-</div>
-
-<div class="location-box">
-📍 Razole, Andhra Pradesh
-</div>
-
-<div class="location-box">
-📍 Vijayawada, Andhra Pradesh
-</div>
-
-<div class="location-box">
-📍 Hyderabad, Telangana
-</div>
-
-<div class="location-box">
-📍 Chennai, Tamil Nadu
-</div>
-
 </div>
 
 <!-- PRODUCTS -->
@@ -599,11 +524,13 @@ Logout
 
 <div class="products">
 
+<!-- PRODUCT -->
+
 <div class="card" onclick="openProduct(
 'Gold Chains',
 '₹49,999',
 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'22K Pure Gold',
+'22K Gold',
 'Wedding Collection',
 '25 Gram Weight',
 'Lifetime Polish'
@@ -642,9 +569,9 @@ Logout
 '₹9,999',
 'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
 'Pure Silver',
-'Luxury Design',
-'Modern Collection',
-'Premium Finish'
+'Modern Design',
+'Premium Finish',
+'Stylish Collection'
 )">
 
 <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
@@ -660,8 +587,8 @@ Logout
 'Royal Earrings',
 '₹15,999',
 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-'Premium Earrings',
 'Wedding Collection',
+'Premium Earrings',
 'Trending Design',
 'Party Wear'
 )">
@@ -680,8 +607,8 @@ Logout
 '₹24,999',
 'https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop',
 '22K Gold',
-'Traditional Design',
 'Festival Collection',
+'Traditional Design',
 'Premium Finish'
 )">
 
@@ -690,6 +617,25 @@ Logout
 <div class="card-content">
 <h3>Luxury Bangles</h3>
 <div class="price">₹24,999</div>
+</div>
+
+</div>
+
+<div class="card" onclick="openProduct(
+'Pearl Necklace',
+'₹19,999',
+'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
+'Luxury Pearl',
+'Premium Collection',
+'Stylish Design',
+'Party Wear'
+)">
+
+<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Pearl Necklace</h3>
+<div class="price">₹19,999</div>
 </div>
 
 </div>
@@ -764,13 +710,11 @@ Purchase Now
 
 /* SUPABASE */
 
-const SUPABASE_URL =
-"https://jopcbkfxgbnstflualez.supabase.co";
+const SUPABASE_URL="https://jopcbkfxgbnstflualez.supabase.co";
 
-const SUPABASE_ANON_KEY =
-"sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
+const SUPABASE_ANON_KEY="sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
 
-const client = supabase.createClient(
+const client=supabase.createClient(
 SUPABASE_URL,
 SUPABASE_ANON_KEY
 );
@@ -780,7 +724,6 @@ SUPABASE_ANON_KEY
 function showLogin(){
 
 document.getElementById("signupPage").style.display="none";
-
 document.getElementById("loginPage").style.display="block";
 
 }
@@ -788,18 +731,81 @@ document.getElementById("loginPage").style.display="block";
 function showSignup(){
 
 document.getElementById("loginPage").style.display="none";
-
 document.getElementById("signupPage").style.display="block";
 
 }
 
+/* SIGNUP */
+
 async function signup(){
 
-showLogin();
+const name=document.getElementById("signupName").value.trim();
+
+const email=document.getElementById("signupEmail").value.trim();
+
+const password=document.getElementById("signupPassword").value.trim();
+
+const mobile=document.getElementById("signupMobile").value.trim();
+
+if(name==="" || email==="" || password==="" || mobile===""){
+
+alert("Fill All Fields");
+return;
 
 }
 
+const { data:existingUser } = await client
+.from("users")
+.select("*")
+.eq("email",email);
+
+if(existingUser && existingUser.length>0){
+
+alert("Account Already Exists");
+return;
+
+}
+
+const { error } = await client
+.from("users")
+.insert([
+{
+full_name:name,
+email:email,
+password:password,
+mobile:mobile
+}
+]);
+
+if(!error){
+
+alert("Signup Successful");
+
+showLogin();
+
+}else{
+
+alert("Signup Failed");
+
+}
+
+}
+
+/* LOGIN */
+
 async function login(){
+
+const email=document.getElementById("loginEmail").value.trim();
+
+const password=document.getElementById("loginPassword").value.trim();
+
+const { data } = await client
+.from("users")
+.select("*")
+.eq("email",email)
+.eq("password",password);
+
+if(data && data.length>0){
 
 document.getElementById("signupPage").style.display="none";
 
@@ -807,9 +813,15 @@ document.getElementById("loginPage").style.display="none";
 
 document.getElementById("detailsPage").style.display="block";
 
+}else{
+
+alert("Invalid Email Or Password");
+
 }
 
-/* USER CARD */
+}
+
+/* USER */
 
 function toggleUser(){
 
@@ -837,7 +849,7 @@ document.getElementById("loginPage").style.display="block";
 
 }
 
-/* PRODUCT */
+/* PRODUCT PAGE */
 
 function openProduct(title,price,image,d1,d2,d3,d4){
 
@@ -871,11 +883,11 @@ document.getElementById("detailsPage").style.display="block";
 
 }
 
-/* PRODUCT DRAG */
+/* PRODUCT DRAG MOVE */
 
 const slider=document.getElementById("slider");
 
-let isDown=false;
+let pressed=false;
 
 let startX;
 
@@ -883,7 +895,7 @@ let scrollLeft;
 
 slider.addEventListener("mousedown",(e)=>{
 
-isDown=true;
+pressed=true;
 
 startX=e.pageX-slider.offsetLeft;
 
@@ -893,19 +905,19 @@ scrollLeft=slider.scrollLeft;
 
 slider.addEventListener("mouseleave",()=>{
 
-isDown=false;
+pressed=false;
 
 });
 
 slider.addEventListener("mouseup",()=>{
 
-isDown=false;
+pressed=false;
 
 });
 
 slider.addEventListener("mousemove",(e)=>{
 
-if(!isDown) return;
+if(!pressed) return;
 
 e.preventDefault();
 
@@ -934,78 +946,6 @@ const x=e.touches[0].pageX-slider.offsetLeft;
 const walk=(x-startX)*2;
 
 slider.scrollLeft=scrollLeft-walk;
-
-});
-
-/* LOCATION DRAG */
-
-const locationSlider=
-document.getElementById("locationSlider");
-
-let isLocationDown=false;
-
-let locationStartX;
-
-let locationScrollLeft;
-
-locationSlider.addEventListener("mousedown",(e)=>{
-
-isLocationDown=true;
-
-locationStartX=e.pageX-locationSlider.offsetLeft;
-
-locationScrollLeft=locationSlider.scrollLeft;
-
-});
-
-locationSlider.addEventListener("mouseleave",()=>{
-
-isLocationDown=false;
-
-});
-
-locationSlider.addEventListener("mouseup",()=>{
-
-isLocationDown=false;
-
-});
-
-locationSlider.addEventListener("mousemove",(e)=>{
-
-if(!isLocationDown) return;
-
-e.preventDefault();
-
-const x=e.pageX-locationSlider.offsetLeft;
-
-const walk=(x-locationStartX)*2;
-
-locationSlider.scrollLeft=
-locationScrollLeft-walk;
-
-});
-
-/* MOBILE TOUCH */
-
-locationSlider.addEventListener("touchstart",(e)=>{
-
-locationStartX=
-e.touches[0].pageX-locationSlider.offsetLeft;
-
-locationScrollLeft=
-locationSlider.scrollLeft;
-
-});
-
-locationSlider.addEventListener("touchmove",(e)=>{
-
-const x=
-e.touches[0].pageX-locationSlider.offsetLeft;
-
-const walk=(x-locationStartX)*2;
-
-locationSlider.scrollLeft=
-locationScrollLeft-walk;
 
 });
 
