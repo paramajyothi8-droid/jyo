@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Royal Jewellery</title>
 
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -19,58 +19,56 @@ font-family:Arial,sans-serif;
 
 body{
 background:linear-gradient(135deg,#240046,#5a189a,#9d4edd);
-min-height:100vh;
 overflow:hidden;
 }
 
 /* LOGIN + SIGNUP */
 
 .container{
-width:100%;
-max-width:370px;
+width:90%;
+max-width:380px;
 background:white;
-border-radius:28px;
 padding:25px;
-box-shadow:0 10px 35px rgba(0,0,0,0.4);
+border-radius:30px;
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
+box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .logo{
+font-size:50px;
 text-align:center;
-font-size:48px;
 margin-bottom:10px;
 }
 
 .title{
-text-align:center;
-font-size:28px;
+font-size:30px;
 font-weight:bold;
+text-align:center;
 color:#6a00f4;
-margin-bottom:5px;
+margin-bottom:10px;
 }
 
 .subtitle{
 text-align:center;
 color:gray;
-font-size:14px;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .input-box{
-margin-bottom:16px;
+margin-bottom:15px;
 }
 
 .input-box input{
 width:100%;
 padding:14px;
 border:none;
-border-radius:14px;
-background:#f3f3f3;
-font-size:15px;
 outline:none;
+border-radius:14px;
+background:#f2f2f2;
+font-size:15px;
 }
 
 .btn{
@@ -87,8 +85,7 @@ cursor:pointer;
 
 .switch{
 text-align:center;
-margin-top:18px;
-font-size:14px;
+margin-top:15px;
 }
 
 .switch span{
@@ -97,24 +94,17 @@ font-weight:bold;
 cursor:pointer;
 }
 
-.message{
-margin-top:15px;
-text-align:center;
-font-weight:bold;
-}
-
 #loginPage{
 display:none;
 }
 
-/* HOME PAGE */
+/* HOME */
 
 #detailsPage{
 display:none;
-width:100%;
 height:100vh;
-overflow:hidden;
 padding:15px;
+overflow:hidden;
 }
 
 /* TOP BAR */
@@ -136,12 +126,11 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:14px;
-background:white;
 font-size:15px;
 outline:none;
 }
 
-/* USER */
+/* USER ICON */
 
 .user-icon{
 width:55px;
@@ -155,43 +144,42 @@ font-size:24px;
 color:white;
 cursor:pointer;
 position:relative;
-box-shadow:0 5px 20px rgba(0,0,0,0.3);
 }
 
 .user-popup{
 position:absolute;
 top:70px;
 right:0;
-width:220px;
+width:270px;
 background:white;
-border-radius:20px;
 padding:20px;
+border-radius:25px;
 display:none;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-z-index:10;
+box-shadow:0 10px 35px rgba(0,0,0,0.4);
+z-index:100;
 }
 
-.user-popup h3{
+.user-popup h2{
 color:#6a00f4;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 .user-popup p{
+margin-bottom:10px;
 font-size:14px;
-margin-bottom:8px;
 color:#444;
 }
 
 .logout-btn{
-margin-top:10px;
 width:100%;
-padding:10px;
+padding:12px;
 border:none;
 border-radius:12px;
 background:red;
 color:white;
 font-weight:bold;
 cursor:pointer;
+margin-top:10px;
 }
 
 /* HEADER */
@@ -199,20 +187,20 @@ cursor:pointer;
 .header{
 text-align:center;
 color:white;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .header h1{
-font-size:32px;
+font-size:34px;
 margin-bottom:5px;
 }
 
-/* PRODUCTS */
+/* SLIDER */
 
 .slider-container{
 overflow-x:auto;
 scroll-behavior:smooth;
-padding-bottom:20px;
+cursor:grab;
 }
 
 .slider-container::-webkit-scrollbar{
@@ -220,15 +208,16 @@ display:none;
 }
 
 .products{
-display:grid;
-grid-template-columns:repeat(3,260px);
-gap:20px;
+display:flex;
+gap:18px;
 width:max-content;
+padding-bottom:20px;
 }
 
 /* CARD */
 
 .card{
+min-width:240px;
 background:white;
 border-radius:25px;
 overflow:hidden;
@@ -243,7 +232,7 @@ transform:scale(1.03);
 
 .card img{
 width:100%;
-height:220px;
+height:240px;
 object-fit:cover;
 }
 
@@ -260,7 +249,6 @@ margin-bottom:10px;
 font-size:22px;
 font-weight:bold;
 color:#ff0080;
-margin-bottom:10px;
 }
 
 /* PRODUCT PAGE */
@@ -270,7 +258,6 @@ display:none;
 height:100vh;
 overflow:auto;
 padding:20px;
-color:white;
 }
 
 .back-btn{
@@ -280,8 +267,8 @@ border-radius:12px;
 background:white;
 color:#6a00f4;
 font-weight:bold;
-margin-bottom:20px;
 cursor:pointer;
+margin-bottom:20px;
 }
 
 .product-details{
@@ -290,8 +277,7 @@ margin:auto;
 background:white;
 border-radius:30px;
 overflow:hidden;
-color:black;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
+box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .product-details img{
@@ -318,7 +304,6 @@ margin-bottom:15px;
 
 .product-description{
 line-height:1.8;
-font-size:15px;
 color:#555;
 margin-bottom:20px;
 }
@@ -335,20 +320,6 @@ font-weight:bold;
 cursor:pointer;
 }
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-.products{
-grid-template-columns:repeat(3,210px);
-}
-
-.card img{
-height:180px;
-}
-
-}
-
 </style>
 </head>
 
@@ -362,7 +333,7 @@ height:180px;
 
 <div class="title">Royal Jewellery</div>
 
-<div class="subtitle">Create Your Premium Account</div>
+<div class="subtitle">Create Premium Account</div>
 
 <div class="input-box">
 <input type="text" id="signupName" placeholder="Full Name">
@@ -380,14 +351,14 @@ height:180px;
 <input type="text" id="signupMobile" placeholder="Mobile Number">
 </div>
 
-<button class="btn" onclick="signup()">SIGN UP</button>
+<button class="btn" onclick="signup()">
+SIGN UP
+</button>
 
 <div class="switch">
 Already Have Account?
 <span onclick="showLogin()">Login</span>
 </div>
-
-<div class="message" id="signupMessage"></div>
 
 </div>
 
@@ -409,14 +380,14 @@ Already Have Account?
 <input type="password" id="loginPassword" placeholder="Password">
 </div>
 
-<button class="btn" onclick="login()">LOGIN</button>
+<button class="btn" onclick="login()">
+LOGIN
+</button>
 
 <div class="switch">
 Create New Account?
 <span onclick="showSignup()">Signup</span>
 </div>
-
-<div class="message" id="loginMessage"></div>
 
 </div>
 
@@ -434,14 +405,17 @@ Create New Account?
 
 👤
 
-<div class="user-popup" id="userPopup">
+<div class="user-popup" id="popup">
 
-<h3>User Details</h3>
+<h2>👑 Premium User</h2>
 
-<p><b>Name:</b> Royal User</p>
-
-<p><b>Membership:</b> Premium</p>
-
+<p><b>Name:</b> Royal Customer</p>
+<p><b>Email:</b> royal@gmail.com</p>
+<p><b>Membership:</b> Gold Premium</p>
+<p><b>Orders:</b> 15 Completed</p>
+<p><b>Wishlist:</b> 12 Items</p>
+<p><b>Reward Points:</b> 6,500</p>
+<p><b>Location:</b> India</p>
 <p><b>Status:</b> Active</p>
 
 <button class="logout-btn" onclick="logout()">
@@ -455,21 +429,26 @@ Logout
 </div>
 
 <div class="header">
-<h1>💍 Premium Jewellery</h1>
-<p>Swipe Products →</p>
+<h1>💍 Royal Jewellery</h1>
+<p>Drag Products Left / Right →</p>
 </div>
 
-<div class="slider-container">
+<!-- SLIDER -->
+
+<div class="slider-container" id="slider">
 
 <div class="products">
 
-<!-- CARD -->
+<!-- PRODUCT 1 -->
 
 <div class="card" onclick="openProduct(
 'Gold Necklace',
 '₹49,999',
 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'22K Pure Gold Necklace with premium wedding collection finish.'
+'22K Pure Gold Necklace',
+'Wedding Collection',
+'25 Grams Weight',
+'Lifetime Polish'
 )">
 
 <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
@@ -481,11 +460,16 @@ Logout
 
 </div>
 
+<!-- PRODUCT 2 -->
+
 <div class="card" onclick="openProduct(
 'Diamond Ring',
 '₹29,999',
 'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
-'Luxury certified diamond ring with elegant premium finish.'
+'Luxury Diamond Ring',
+'Certified Diamond',
+'Elegant Finish',
+'Premium Quality'
 )">
 
 <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop">
@@ -497,11 +481,16 @@ Logout
 
 </div>
 
+<!-- PRODUCT 3 -->
+
 <div class="card" onclick="openProduct(
 'Silver Bracelet',
 '₹9,999',
 'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
-'Stylish modern silver bracelet with luxury hand finish.'
+'Pure Silver Bracelet',
+'Modern Collection',
+'Luxury Finish',
+'Stylish Design'
 )">
 
 <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
@@ -513,13 +502,76 @@ Logout
 
 </div>
 
+<!-- PRODUCT 4 -->
+
+<div class="card" onclick="openProduct(
+'Royal Earrings',
+'₹15,999',
+'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
+'Premium Earrings',
+'Party Wear',
+'Gold Finish',
+'Luxury Shine'
+)">
+
+<img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Royal Earrings</h3>
+<div class="price">₹15,999</div>
+</div>
+
+</div>
+
+<!-- PRODUCT 5 -->
+
+<div class="card" onclick="openProduct(
+'Diamond Chain',
+'₹39,999',
+'https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=800&auto=format&fit=crop',
+'Luxury Diamond Chain',
+'Wedding Special',
+'Premium Shine',
+'Elegant Design'
+)">
+
+<img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Diamond Chain</h3>
+<div class="price">₹39,999</div>
+</div>
+
+</div>
+
+<!-- PRODUCT 6 -->
+
+<div class="card" onclick="openProduct(
+'Luxury Bangles',
+'₹24,999',
+'https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop',
+'22K Gold Bangles',
+'Traditional Collection',
+'Festival Wear',
+'Premium Finish'
+)">
+
+<img src="https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Luxury Bangles</h3>
+<div class="price">₹24,999</div>
 </div>
 
 </div>
 
 </div>
 
-<!-- PRODUCT DETAILS PAGE -->
+</div>
+
+</div>
+
+<!-- PRODUCT DETAILS -->
 
 <div id="productPage">
 
@@ -529,7 +581,7 @@ Logout
 
 <div class="product-details">
 
-<img id="productImage" src="">
+<img id="productImage">
 
 <div class="product-info">
 
@@ -537,7 +589,14 @@ Logout
 
 <div class="product-price" id="productPrice"></div>
 
-<div class="product-description" id="productDescription"></div>
+<div class="product-description">
+
+<p id="d1"></p>
+<p id="d2"></p>
+<p id="d3"></p>
+<p id="d4"></p>
+
+</div>
 
 <button class="buy-btn">
 Purchase Now
@@ -551,9 +610,12 @@ Purchase Now
 
 <script>
 
-/* SUPABASE */
+/* ======================
+SUPABASE
+====================== */
 
 const SUPABASE_URL = "https://jopcbkfxgbnstflualez.supabase.co";
+
 const SUPABASE_ANON_KEY = "sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
 
 const client = supabase.createClient(
@@ -566,6 +628,7 @@ SUPABASE_ANON_KEY
 function showLogin(){
 
 document.getElementById("signupPage").style.display="none";
+
 document.getElementById("loginPage").style.display="block";
 
 }
@@ -575,6 +638,7 @@ document.getElementById("loginPage").style.display="block";
 function showSignup(){
 
 document.getElementById("loginPage").style.display="none";
+
 document.getElementById("signupPage").style.display="block";
 
 }
@@ -583,27 +647,44 @@ document.getElementById("signupPage").style.display="block";
 
 async function signup(){
 
-const name=document.getElementById("signupName").value.trim();
-const email=document.getElementById("signupEmail").value.trim();
-const password=document.getElementById("signupPassword").value.trim();
-const mobile=document.getElementById("signupMobile").value.trim();
+const name=document.getElementById("signupName").value;
 
-const message=document.getElementById("signupMessage");
+const email=document.getElementById("signupEmail").value;
 
-if(name===""||email===""||password===""||mobile===""){
+const password=document.getElementById("signupPassword").value;
 
-message.style.color="red";
-message.innerHTML="❌ Fill All Fields";
+const mobile=document.getElementById("signupMobile").value;
+
+if(name==="" || email==="" || password==="" || mobile===""){
+
+alert("Fill All Fields");
+
 return;
 
 }
 
-message.style.color="green";
-message.innerHTML="✅ Signup Successful";
+const { error } = await client
+.from("users")
+.insert([
+{
+full_name:name,
+email:email,
+password:password,
+mobile:mobile
+}
+]);
 
-setTimeout(()=>{
+if(!error){
+
+alert("Signup Successful");
+
 showLogin();
-},1000);
+
+}else{
+
+alert("Signup Failed");
+
+}
 
 }
 
@@ -611,29 +692,29 @@ showLogin();
 
 async function login(){
 
-const email=document.getElementById("loginEmail").value.trim();
-const password=document.getElementById("loginPassword").value.trim();
+const email=document.getElementById("loginEmail").value;
 
-const message=document.getElementById("loginMessage");
+const password=document.getElementById("loginPassword").value;
 
-if(email===""||password===""){
+const { data } = await client
+.from("users")
+.select("*")
+.eq("email",email)
+.eq("password",password);
 
-message.style.color="red";
-message.innerHTML="❌ Enter Email And Password";
-return;
-
-}
-
-message.style.color="green";
-message.innerHTML="✅ Login Successful";
-
-setTimeout(()=>{
+if(data && data.length > 0){
 
 document.getElementById("loginPage").style.display="none";
+
 document.getElementById("signupPage").style.display="none";
+
 document.getElementById("detailsPage").style.display="block";
 
-},1000);
+}else{
+
+alert("Invalid Email Or Password");
+
+}
 
 }
 
@@ -641,13 +722,12 @@ document.getElementById("detailsPage").style.display="block";
 
 function toggleUser(){
 
-const popup=document.getElementById("userPopup");
+let popup=document.getElementById("popup");
 
-if(popup.style.display==="block"){
-popup.style.display="none";
-}else{
-popup.style.display="block";
-}
+popup.style.display=
+popup.style.display==="block"
+? "none"
+: "block";
 
 }
 
@@ -656,14 +736,16 @@ popup.style.display="block";
 function logout(){
 
 document.getElementById("detailsPage").style.display="none";
+
 document.getElementById("productPage").style.display="none";
+
 document.getElementById("loginPage").style.display="block";
 
 }
 
-/* OPEN PRODUCT PAGE */
+/* PRODUCT PAGE */
 
-function openProduct(title,price,image,description){
+function openProduct(title,price,image,d1,d2,d3,d4){
 
 document.getElementById("detailsPage").style.display="none";
 
@@ -675,7 +757,13 @@ document.getElementById("productPrice").innerHTML=price;
 
 document.getElementById("productImage").src=image;
 
-document.getElementById("productDescription").innerHTML=description;
+document.getElementById("d1").innerHTML="• "+d1;
+
+document.getElementById("d2").innerHTML="• "+d2;
+
+document.getElementById("d3").innerHTML="• "+d3;
+
+document.getElementById("d4").innerHTML="• "+d4;
 
 }
 
@@ -688,6 +776,78 @@ document.getElementById("productPage").style.display="none";
 document.getElementById("detailsPage").style.display="block";
 
 }
+
+/* DRAG SLIDER */
+
+const slider=document.getElementById("slider");
+
+let isDown=false;
+
+let startX;
+
+let scrollLeft;
+
+slider.addEventListener("mousedown",(e)=>{
+
+isDown=true;
+
+slider.style.cursor="grabbing";
+
+startX=e.pageX-slider.offsetLeft;
+
+scrollLeft=slider.scrollLeft;
+
+});
+
+slider.addEventListener("mouseleave",()=>{
+
+isDown=false;
+
+slider.style.cursor="grab";
+
+});
+
+slider.addEventListener("mouseup",()=>{
+
+isDown=false;
+
+slider.style.cursor="grab";
+
+});
+
+slider.addEventListener("mousemove",(e)=>{
+
+if(!isDown) return;
+
+e.preventDefault();
+
+const x=e.pageX-slider.offsetLeft;
+
+const walk=(x-startX)*2;
+
+slider.scrollLeft=scrollLeft-walk;
+
+});
+
+/* MOBILE TOUCH */
+
+slider.addEventListener("touchstart",(e)=>{
+
+startX=e.touches[0].pageX;
+
+scrollLeft=slider.scrollLeft;
+
+});
+
+slider.addEventListener("touchmove",(e)=>{
+
+const x=e.touches[0].pageX;
+
+const walk=(x-startX)*2;
+
+slider.scrollLeft=scrollLeft-walk;
+
+});
 
 </script>
 
