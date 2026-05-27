@@ -1,21 +1,16 @@
-<!-- =========================
-ROYAL JEWELLERY FULL SCRIPT
-ADD BELOW BODY SECTION
-========================= -->
+<!-- ADD THIS INSIDE YOUR <script> SECTION -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
 /* =========================
-SUPABASE CONFIG
+   SUPABASE CONFIG
 ========================= */
 
-const SUPABASE_URL =
-"https://jopcbkfxgbnstflualez.supabase.co";
+const SUPABASE_URL = "https://jopcbkfxgbnstflualez.supabase.co";
 
-const SUPABASE_ANON_KEY =
-"sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
+const SUPABASE_ANON_KEY = "sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
 
 /* ========================= */
 
@@ -24,9 +19,7 @@ SUPABASE_URL,
 SUPABASE_ANON_KEY
 );
 
-/* =========================
-SHOW LOGIN
-========================= */
+/* SHOW LOGIN */
 
 function showLogin(){
 
@@ -36,9 +29,7 @@ document.getElementById("loginPage").style.display="block";
 
 }
 
-/* =========================
-SHOW SIGNUP
-========================= */
+/* SHOW SIGNUP */
 
 function showSignup(){
 
@@ -48,30 +39,19 @@ document.getElementById("signupPage").style.display="block";
 
 }
 
-/* =========================
-SIGNUP
-========================= */
+/* SIGNUP */
 
 async function signup(){
 
-const name =
-document.getElementById("signupName").value.trim();
+const name = document.getElementById("signupName").value.trim();
 
-const email =
-document.getElementById("signupEmail").value.trim();
+const email = document.getElementById("signupEmail").value.trim();
 
-const password =
-document.getElementById("signupPassword").value.trim();
+const password = document.getElementById("signupPassword").value.trim();
 
-const mobile =
-document.getElementById("signupMobile").value.trim();
+const mobile = document.getElementById("signupMobile").value.trim();
 
-if(
-name==="" ||
-email==="" ||
-password==="" ||
-mobile===""
-){
+if(name==="" || email==="" || password==="" || mobile===""){
 
 alert("Fill All Fields");
 
@@ -81,8 +61,7 @@ return;
 
 /* CHECK USER */
 
-const { data: existingUser } =
-await client
+const { data: existingUser } = await client
 .from("users")
 .select("*")
 .eq("email",email);
@@ -97,8 +76,7 @@ return;
 
 /* INSERT USER */
 
-const { error } =
-await client
+const { error } = await client
 .from("users")
 .insert([
 {
@@ -123,17 +101,13 @@ alert("Signup Failed");
 
 }
 
-/* =========================
-LOGIN
-========================= */
+/* LOGIN */
 
 async function login(){
 
-const email =
-document.getElementById("loginEmail").value.trim();
+const email = document.getElementById("loginEmail").value.trim();
 
-const password =
-document.getElementById("loginPassword").value.trim();
+const password = document.getElementById("loginPassword").value.trim();
 
 if(email==="" || password===""){
 
@@ -143,8 +117,9 @@ return;
 
 }
 
-const { data } =
-await client
+/* CHECK LOGIN */
+
+const { data } = await client
 .from("users")
 .select("*")
 .eq("email",email)
@@ -152,9 +127,9 @@ await client
 
 if(data && data.length > 0){
 
-document.getElementById("signupPage").style.display="none";
-
 document.getElementById("loginPage").style.display="none";
+
+document.getElementById("signupPage").style.display="none";
 
 document.getElementById("detailsPage").style.display="block";
 
@@ -166,30 +141,21 @@ alert("Invalid Email Or Password");
 
 }
 
-/* =========================
-USER POPUP
-========================= */
+/* USER POPUP */
 
 function toggleUser(){
 
-const popup =
-document.getElementById("popup");
+let popup=document.getElementById("popup");
 
 if(popup.style.display==="block"){
-
 popup.style.display="none";
-
 }else{
-
 popup.style.display="block";
-
 }
 
 }
 
-/* =========================
-LOGOUT
-========================= */
+/* LOGOUT */
 
 function logout(){
 
@@ -199,22 +165,9 @@ document.getElementById("loginPage").style.display="block";
 
 }
 
-/* =========================
-OPEN PRODUCT PAGE
-========================= */
+/* PRODUCT PAGE */
 
-function openProduct(
-title,
-price,
-image,
-d1,
-d2,
-d3,
-d4,
-r1,
-r2,
-r3
-){
+function openProduct(title,price,image,d1,d2,d3,d4){
 
 document.getElementById("detailsPage").style.display="none";
 
@@ -234,19 +187,9 @@ document.getElementById("d3").innerHTML="• "+d3;
 
 document.getElementById("d4").innerHTML="• "+d4;
 
-/* RELATED PRODUCTS */
-
-document.getElementById("r1").innerHTML=r1;
-
-document.getElementById("r2").innerHTML=r2;
-
-document.getElementById("r3").innerHTML=r3;
-
 }
 
-/* =========================
-BACK HOME
-========================= */
+/* BACK */
 
 function backHome(){
 
@@ -256,20 +199,15 @@ document.getElementById("detailsPage").style.display="block";
 
 }
 
-/* =========================
-PRODUCT SLIDER MOVE
-========================= */
+/* SLIDE MOVE */
 
-const slider =
-document.getElementById("slider");
+const slider=document.getElementById("slider");
 
 let isDown=false;
 
 let startX;
 
 let scrollLeft;
-
-/* MOUSE */
 
 slider.addEventListener("mousedown",(e)=>{
 
@@ -307,328 +245,4 @@ slider.scrollLeft=scrollLeft-walk;
 
 });
 
-/* MOBILE TOUCH */
-
-slider.addEventListener("touchstart",(e)=>{
-
-startX=e.touches[0].pageX-slider.offsetLeft;
-
-scrollLeft=slider.scrollLeft;
-
-});
-
-slider.addEventListener("touchmove",(e)=>{
-
-const x=e.touches[0].pageX-slider.offsetLeft;
-
-const walk=(x-startX)*2;
-
-slider.scrollLeft=scrollLeft-walk;
-
-});
-
-/* =========================
-LOCATION SLIDER
-========================= */
-
-const locationSlider =
-document.getElementById("locationSlider");
-
-let locationDown=false;
-
-let locationStartX;
-
-let locationScrollLeft;
-
-/* MOUSE */
-
-locationSlider.addEventListener("mousedown",(e)=>{
-
-locationDown=true;
-
-locationStartX=e.pageX-locationSlider.offsetLeft;
-
-locationScrollLeft=locationSlider.scrollLeft;
-
-});
-
-locationSlider.addEventListener("mouseleave",()=>{
-
-locationDown=false;
-
-});
-
-locationSlider.addEventListener("mouseup",()=>{
-
-locationDown=false;
-
-});
-
-locationSlider.addEventListener("mousemove",(e)=>{
-
-if(!locationDown) return;
-
-e.preventDefault();
-
-const x=e.pageX-locationSlider.offsetLeft;
-
-const walk=(x-locationStartX)*2;
-
-locationSlider.scrollLeft=
-locationScrollLeft-walk;
-
-});
-
-/* TOUCH */
-
-locationSlider.addEventListener("touchstart",(e)=>{
-
-locationStartX=
-e.touches[0].pageX-locationSlider.offsetLeft;
-
-locationScrollLeft=
-locationSlider.scrollLeft;
-
-});
-
-locationSlider.addEventListener("touchmove",(e)=>{
-
-const x=
-e.touches[0].pageX-locationSlider.offsetLeft;
-
-const walk=(x-locationStartX)*2;
-
-locationSlider.scrollLeft=
-locationScrollLeft-walk;
-
-});
-
 </script>
-
-<!-- =========================
-USER ICON HTML
-========================= -->
-
-<div class="user-icon" onclick="toggleUser()">
-
-👤
-
-<div class="popup" id="popup">
-
-<div class="user-top">
-
-<div class="user-profile">
-👑
-</div>
-
-<div>
-
-<h3>Royal User</h3>
-
-<p>ID : RJ1025</p>
-
-</div>
-
-</div>
-
-<div class="user-details">
-
-<div>
-<span>📞</span>
-<p>9876543210</p>
-</div>
-
-<div>
-<span>📧</span>
-<p>royal@gmail.com</p>
-</div>
-
-<div>
-<span>💎</span>
-<p>Gold Member</p>
-</div>
-
-<div>
-<span>🛍</span>
-<p>18 Orders</p>
-</div>
-
-</div>
-
-<button onclick="logout()" class="logout-btn">
-Logout
-</button>
-
-</div>
-
-</div>
-
-<!-- =========================
-LOCATION SLIDER HTML
-========================= -->
-
-<div class="location-wrapper">
-
-<div class="location-title">
-📍 Delivery Locations
-</div>
-
-<div class="location-slider" id="locationSlider">
-
-<div class="location-card">
-D.No 10-2, Main Road,
-Razole, Andhra Pradesh,
-533242
-</div>
-
-<div class="location-card">
-Street 4, MG Road,
-Hyderabad,
-500081
-</div>
-
-<div class="location-card">
-Anna Nagar,
-Chennai,
-600040
-</div>
-
-<div class="location-card">
-BTM Layout,
-Bangalore,
-560076
-</div>
-
-<div class="location-card">
-Sector 22,
-Mumbai,
-400001
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================
-PRODUCT CARD EXAMPLES
-ADD MORE PRODUCTS
-========================= -->
-
-<div class="products" id="slider">
-
-<!-- PRODUCT 1 -->
-
-<div class="card" onclick="openProduct(
-'Gold Chains',
-'₹49,999',
-'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'22K Gold Chain',
-'Premium Wedding Collection',
-'25 Gram Gold',
-'Lifetime Polish',
-'Classic Chain',
-'Wedding Chain',
-'Royal Chain'
-)">
-
-<img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
-
-<h3>Gold Chains</h3>
-
-<p>₹49,999</p>
-
-</div>
-
-<!-- PRODUCT 2 -->
-
-<div class="card" onclick="openProduct(
-'Diamond Rings',
-'₹29,999',
-'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
-'Certified Diamond',
-'Luxury Ring',
-'Premium Finish',
-'Party Wear',
-'Heart Ring',
-'Couple Ring',
-'Royal Ring'
-)">
-
-<img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop">
-
-<h3>Diamond Rings</h3>
-
-<p>₹29,999</p>
-
-</div>
-
-<!-- PRODUCT 3 -->
-
-<div class="card" onclick="openProduct(
-'Silver Bracelet',
-'₹9,999',
-'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
-'Pure Silver',
-'Luxury Bracelet',
-'Modern Collection',
-'Premium Design',
-'Silver Style 1',
-'Silver Style 2',
-'Silver Style 3'
-)">
-
-<img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
-
-<h3>Silver Bracelet</h3>
-
-<p>₹9,999</p>
-
-</div>
-
-<!-- PRODUCT 4 -->
-
-<div class="card" onclick="openProduct(
-'Royal Earrings',
-'₹15,999',
-'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-'Premium Earrings',
-'Wedding Collection',
-'Trending Design',
-'Party Wear',
-'Diamond Earrings',
-'Gold Earrings',
-'Pearl Earrings'
-)">
-
-<img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop">
-
-<h3>Royal Earrings</h3>
-
-<p>₹15,999</p>
-
-</div>
-
-<!-- PRODUCT 5 -->
-
-<div class="card" onclick="openProduct(
-'Luxury Bangles',
-'₹24,999',
-'https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop',
-'22K Gold',
-'Traditional Design',
-'Festival Collection',
-'Premium Finish',
-'Wedding Bangles',
-'Royal Bangles',
-'Classic Bangles'
-)">
-
-<img src="https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop">
-
-<h3>Luxury Bangles</h3>
-
-<p>₹24,999</p>
-
-</div>
-
-</div>
