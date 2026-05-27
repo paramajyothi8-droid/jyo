@@ -38,7 +38,7 @@ box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .logo{
-font-size:50px;
+font-size:52px;
 text-align:center;
 margin-bottom:10px;
 }
@@ -67,7 +67,7 @@ padding:14px;
 border:none;
 outline:none;
 border-radius:14px;
-background:#f2f2f2;
+background:#f3f3f3;
 font-size:15px;
 }
 
@@ -113,7 +113,7 @@ padding:15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:15px;
+margin-bottom:12px;
 }
 
 .search-box{
@@ -126,8 +126,8 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:14px;
-font-size:15px;
 outline:none;
+font-size:15px;
 }
 
 .user-icon{
@@ -151,7 +151,7 @@ position:absolute;
 top:70px;
 right:0;
 width:280px;
-background:linear-gradient(135deg,#ffffff,#f3e8ff);
+background:white;
 border-radius:25px;
 padding:20px;
 display:none;
@@ -163,14 +163,12 @@ z-index:100;
 display:flex;
 align-items:center;
 margin-bottom:18px;
-padding-bottom:15px;
-border-bottom:1px solid #eee;
 }
 
 .user-avatar{
 width:60px;
 height:60px;
-border-radius:18px;
+border-radius:16px;
 background:linear-gradient(45deg,#ff00cc,#6a00ff);
 display:flex;
 justify-content:center;
@@ -199,13 +197,11 @@ gap:12px;
 }
 
 .menu-item{
-background:white;
+background:#f5f5f5;
 padding:14px;
-border-radius:16px;
+border-radius:14px;
 font-weight:bold;
 color:#444;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-cursor:pointer;
 }
 
 .logout{
@@ -213,52 +209,53 @@ background:#ffebee;
 color:red;
 }
 
-/* LOCATION */
+/* SMALL LOCATION */
 
-.flipkart-location{
-background:white;
-padding:14px;
-border-radius:18px;
+.mini-location{
+width:fit-content;
 display:flex;
 align-items:center;
+background:white;
+padding:8px 12px;
+border-radius:14px;
 margin-bottom:18px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+box-shadow:0 5px 18px rgba(0,0,0,0.18);
 }
 
-.location-left{
-width:42px;
-height:42px;
-border-radius:12px;
+.mini-left{
+width:30px;
+height:30px;
+border-radius:10px;
 background:#f3e8ff;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:22px;
-margin-right:12px;
-}
-
-.deliver-text{
-font-size:12px;
-color:gray;
-margin-bottom:3px;
-}
-
-.location-name{
+margin-right:8px;
 font-size:15px;
+}
+
+.mini-text{
+font-size:10px;
+color:gray;
+}
+
+.mini-place{
+font-size:12px;
 font-weight:bold;
 color:#6a00f4;
+margin-top:2px;
 }
 
 /* HEADER */
 
 .header{
 color:white;
-margin-bottom:18px;
+margin-bottom:20px;
 }
 
 .header h1{
 font-size:32px;
-margin-bottom:6px;
+margin-bottom:5px;
 }
 
 /* PRODUCTS */
@@ -267,6 +264,7 @@ margin-bottom:6px;
 overflow-x:auto;
 scroll-behavior:smooth;
 cursor:grab;
+padding-bottom:20px;
 }
 
 .slider-container::-webkit-scrollbar{
@@ -277,14 +275,13 @@ display:none;
 display:flex;
 gap:18px;
 width:max-content;
-padding-bottom:25px;
 }
 
 .card{
 width:190px;
 height:300px;
 background:white;
-border-radius:26px;
+border-radius:24px;
 overflow:hidden;
 flex-shrink:0;
 box-shadow:0 8px 25px rgba(0,0,0,0.3);
@@ -293,7 +290,7 @@ cursor:pointer;
 
 .card img{
 width:100%;
-height:205px;
+height:200px;
 object-fit:cover;
 }
 
@@ -303,8 +300,8 @@ padding:14px;
 
 .card-content h3{
 font-size:18px;
-margin-bottom:10px;
 color:#6a00f4;
+margin-bottom:10px;
 }
 
 .price{
@@ -491,9 +488,11 @@ Create New Account?
 
 </div>
 
-<!-- HOME -->
+<!-- HOME PAGE -->
 
 <div id="detailsPage">
+
+<!-- TOP -->
 
 <div class="top-bar">
 
@@ -528,8 +527,6 @@ Create New Account?
 
 <div class="menu-item">📦 Saved Address</div>
 
-<div class="menu-item">💎 Super Coins</div>
-
 <div class="menu-item">⚙ Settings</div>
 
 <div class="menu-item logout" onclick="logout()">🚪 Logout</div>
@@ -542,21 +539,21 @@ Create New Account?
 
 </div>
 
-<!-- LOCATION -->
+<!-- SMALL LOCATION -->
 
-<div class="flipkart-location">
+<div class="mini-location">
 
-<div class="location-left">
+<div class="mini-left">
 📍
 </div>
 
 <div>
 
-<div class="deliver-text">
+<div class="mini-text">
 Deliver To
 </div>
 
-<div class="location-name">
+<div class="mini-place">
 Tanuku, Andhra Pradesh - 534211
 </div>
 
@@ -577,6 +574,39 @@ Tanuku, Andhra Pradesh - 534211
 
 <div class="products">
 
+<!-- WATCHES -->
+
+<div class="card" onclick="openProduct(
+'Luxury Watches',
+'₹54,999',
+'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
+'Gold Luxury Watch',
+'Water Resistant',
+'Premium Diamond Finish',
+'Royal Collection',
+[
+'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?q=80&w=800&auto=format&fit=crop'
+],
+[
+'Luxury Watch',
+'Diamond Watch',
+'Gold Premium Watch'
+]
+)">
+
+<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Luxury Watches</h3>
+<div class="price">₹54,999</div>
+</div>
+
+</div>
+
+<!-- CHAINS -->
+
 <div class="card" onclick="openProduct(
 'Gold Chains',
 '₹49,999',
@@ -584,7 +614,17 @@ Tanuku, Andhra Pradesh - 534211
 '22K Pure Gold',
 'Wedding Collection',
 'Premium Finish',
-'Lifetime Polish'
+'Lifetime Polish',
+[
+'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=800&auto=format&fit=crop'
+],
+[
+'Wedding Chain',
+'Pearl Chain',
+'Royal Gold Chain'
+]
 )">
 
 <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
@@ -596,6 +636,8 @@ Tanuku, Andhra Pradesh - 534211
 
 </div>
 
+<!-- RINGS -->
+
 <div class="card" onclick="openProduct(
 'Diamond Rings',
 '₹29,999',
@@ -603,7 +645,17 @@ Tanuku, Andhra Pradesh - 534211
 'Certified Diamond',
 'Luxury Ring',
 'Premium Shine',
-'Party Wear'
+'Party Wear',
+[
+'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop'
+],
+[
+'Wedding Ring',
+'Luxury Ring',
+'Diamond Couple Ring'
+]
 )">
 
 <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop">
@@ -615,14 +667,26 @@ Tanuku, Andhra Pradesh - 534211
 
 </div>
 
+<!-- EARRINGS -->
+
 <div class="card" onclick="openProduct(
 'Royal Earrings',
 '₹15,999',
 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-'Wedding Collection',
-'Premium Earrings',
-'Trending Design',
-'Party Wear'
+'Wedding Earrings',
+'Luxury Design',
+'Premium Finish',
+'Party Collection',
+[
+'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1635767798638-3665c7a0d8ed?q=80&w=800&auto=format&fit=crop',
+'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop'
+],
+[
+'Gold Earrings',
+'Diamond Earrings',
+'Royal Earrings'
+]
 )">
 
 <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop">
@@ -630,63 +694,6 @@ Tanuku, Andhra Pradesh - 534211
 <div class="card-content">
 <h3>Royal Earrings</h3>
 <div class="price">₹15,999</div>
-</div>
-
-</div>
-
-<div class="card" onclick="openProduct(
-'Luxury Bangles',
-'₹24,999',
-'https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop',
-'22K Gold',
-'Festival Collection',
-'Traditional Design',
-'Premium Finish'
-)">
-
-<img src="https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop">
-
-<div class="card-content">
-<h3>Luxury Bangles</h3>
-<div class="price">₹24,999</div>
-</div>
-
-</div>
-
-<div class="card" onclick="openProduct(
-'Silver Bracelets',
-'₹9,999',
-'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
-'Pure Silver',
-'Luxury Collection',
-'Modern Design',
-'Premium Finish'
-)">
-
-<img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
-
-<div class="card-content">
-<h3>Silver Bracelets</h3>
-<div class="price">₹9,999</div>
-</div>
-
-</div>
-
-<div class="card" onclick="openProduct(
-'Pearl Necklace',
-'₹19,999',
-'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-'Luxury Pearl',
-'Premium Necklace',
-'Stylish Design',
-'Party Wear'
-)">
-
-<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop">
-
-<div class="card-content">
-<h3>Pearl Necklace</h3>
-<div class="price">₹19,999</div>
 </div>
 
 </div>
@@ -728,24 +735,7 @@ Tanuku, Andhra Pradesh - 534211
 Related Products
 </div>
 
-<div class="related-products">
-
-<div class="related-card">
-<img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
-<p>Gold Chain 1</p>
-</div>
-
-<div class="related-card">
-<img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
-<p>Gold Chain 2</p>
-</div>
-
-<div class="related-card">
-<img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
-<p>Gold Chain 3</p>
-</div>
-
-</div>
+<div class="related-products" id="relatedProducts"></div>
 
 <button class="buy-btn">
 Purchase Now
@@ -761,11 +751,13 @@ Purchase Now
 
 /* SUPABASE */
 
-const SUPABASE_URL="https://jopcbkfxgbnstflualez.supabase.co";
+const SUPABASE_URL =
+"https://jopcbkfxgbnstflualez.supabase.co";
 
-const SUPABASE_ANON_KEY="sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
+const SUPABASE_ANON_KEY =
+"sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
 
-const client=supabase.createClient(
+const client = supabase.createClient(
 SUPABASE_URL,
 SUPABASE_ANON_KEY
 );
@@ -872,7 +864,7 @@ alert("Invalid Email Or Password");
 
 }
 
-/* USER CARD */
+/* USER */
 
 function toggleUser(){
 
@@ -902,7 +894,17 @@ document.getElementById("loginPage").style.display="block";
 
 /* PRODUCT PAGE */
 
-function openProduct(title,price,image,d1,d2,d3,d4){
+function openProduct(
+title,
+price,
+image,
+d1,
+d2,
+d3,
+d4,
+relatedImages,
+relatedNames
+){
 
 document.getElementById("detailsPage").style.display="none";
 
@@ -922,6 +924,28 @@ document.getElementById("d3").innerHTML="• "+d3;
 
 document.getElementById("d4").innerHTML="• "+d4;
 
+/* RELATED */
+
+let relatedHTML="";
+
+for(let i=0;i<relatedImages.length;i++){
+
+relatedHTML += `
+
+<div class="related-card">
+
+<img src="${relatedImages[i]}">
+
+<p>${relatedNames[i]}</p>
+
+</div>
+
+`;
+
+}
+
+document.getElementById("relatedProducts").innerHTML=relatedHTML;
+
 }
 
 /* BACK */
@@ -938,13 +962,15 @@ document.getElementById("detailsPage").style.display="block";
 
 const slider=document.getElementById("slider");
 
-let isPressed=false;
+let isDown=false;
+
 let startX;
+
 let scrollLeft;
 
 slider.addEventListener("mousedown",(e)=>{
 
-isPressed=true;
+isDown=true;
 
 startX=e.pageX-slider.offsetLeft;
 
@@ -954,19 +980,19 @@ scrollLeft=slider.scrollLeft;
 
 slider.addEventListener("mouseleave",()=>{
 
-isPressed=false;
+isDown=false;
 
 });
 
 slider.addEventListener("mouseup",()=>{
 
-isPressed=false;
+isDown=false;
 
 });
 
 slider.addEventListener("mousemove",(e)=>{
 
-if(!isPressed) return;
+if(!isDown) return;
 
 e.preventDefault();
 
