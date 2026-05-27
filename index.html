@@ -22,14 +22,14 @@ background:linear-gradient(135deg,#240046,#5a189a,#9d4edd);
 overflow:hidden;
 }
 
-/* LOGIN + SIGNUP */
+/* LOGIN */
 
 .container{
 width:90%;
 max-width:380px;
 background:white;
 padding:25px;
-border-radius:30px;
+border-radius:28px;
 position:absolute;
 top:50%;
 left:50%;
@@ -38,7 +38,7 @@ box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .logo{
-font-size:52px;
+font-size:55px;
 text-align:center;
 margin-bottom:10px;
 }
@@ -100,14 +100,14 @@ display:none;
 
 /* HOME */
 
-#detailsPage{
+#homePage{
 display:none;
 height:100vh;
 overflow:auto;
 padding:15px;
 }
 
-/* TOP BAR */
+/* TOP */
 
 .top-bar{
 display:flex;
@@ -140,108 +140,29 @@ justify-content:center;
 align-items:center;
 font-size:24px;
 color:white;
-cursor:pointer;
-position:relative;
 }
 
-/* USER CARD */
+/* LOCATION */
 
-.user-card{
-position:absolute;
-top:70px;
-right:0;
-width:280px;
+.location-box{
+display:flex;
+align-items:center;
 background:white;
-border-radius:25px;
-padding:20px;
-display:none;
-box-shadow:0 10px 35px rgba(0,0,0,0.4);
-z-index:100;
-}
-
-.user-header{
-display:flex;
-align-items:center;
-margin-bottom:18px;
-}
-
-.user-avatar{
-width:60px;
-height:60px;
-border-radius:16px;
-background:linear-gradient(45deg,#ff00cc,#6a00ff);
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:28px;
-color:white;
-margin-right:12px;
-}
-
-.user-name{
-font-size:18px;
-font-weight:bold;
-color:#222;
-}
-
-.user-number{
-font-size:13px;
-color:gray;
-margin-top:4px;
-}
-
-.user-menu{
-display:flex;
-flex-direction:column;
-gap:12px;
-}
-
-.menu-item{
-background:#f5f5f5;
-padding:14px;
+padding:10px 14px;
 border-radius:14px;
-font-weight:bold;
-color:#444;
-}
-
-.logout{
-background:#ffebee;
-color:red;
-}
-
-/* SMALL LOCATION */
-
-.mini-location{
 width:fit-content;
-display:flex;
-align-items:center;
-background:white;
-padding:8px 12px;
-border-radius:14px;
 margin-bottom:18px;
-box-shadow:0 5px 18px rgba(0,0,0,0.18);
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
-.mini-left{
-width:30px;
-height:30px;
-border-radius:10px;
-background:#f3e8ff;
-display:flex;
-justify-content:center;
-align-items:center;
-margin-right:8px;
-font-size:15px;
-}
-
-.mini-text{
-font-size:10px;
-color:gray;
-}
-
-.mini-place{
+.location-box span{
 font-size:12px;
-font-weight:bold;
+color:gray;
+display:block;
+}
+
+.location-box h4{
+font-size:13px;
 color:#6a00f4;
 margin-top:2px;
 }
@@ -254,7 +175,7 @@ margin-bottom:20px;
 }
 
 .header h1{
-font-size:32px;
+font-size:30px;
 margin-bottom:5px;
 }
 
@@ -264,7 +185,6 @@ margin-bottom:5px;
 overflow-x:auto;
 scroll-behavior:smooth;
 cursor:grab;
-padding-bottom:20px;
 }
 
 .slider-container::-webkit-scrollbar{
@@ -273,15 +193,15 @@ display:none;
 
 .products{
 display:flex;
-gap:18px;
+gap:16px;
 width:max-content;
+padding-bottom:20px;
 }
 
 .card{
-width:190px;
-height:300px;
+width:170px;
 background:white;
-border-radius:24px;
+border-radius:22px;
 overflow:hidden;
 flex-shrink:0;
 box-shadow:0 8px 25px rgba(0,0,0,0.3);
@@ -290,33 +210,33 @@ cursor:pointer;
 
 .card img{
 width:100%;
-height:200px;
+height:170px;
 object-fit:cover;
 }
 
 .card-content{
-padding:14px;
+padding:12px;
 }
 
 .card-content h3{
-font-size:18px;
+font-size:16px;
 color:#6a00f4;
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
 .price{
-font-size:22px;
+font-size:20px;
 font-weight:bold;
 color:#ff0080;
 }
 
-/* PRODUCT PAGE */
+/* CATEGORY PAGE */
 
-#productPage{
+#categoryPage{
 display:none;
 height:100vh;
 overflow:auto;
-padding:18px;
+padding:15px;
 }
 
 .back-btn{
@@ -324,97 +244,52 @@ padding:12px 18px;
 border:none;
 border-radius:14px;
 background:white;
-color:#6a00f4;
 font-weight:bold;
+color:#6a00f4;
 margin-bottom:18px;
 cursor:pointer;
 }
 
-.product-details{
-background:white;
-border-radius:30px;
-overflow:hidden;
-max-width:450px;
-margin:auto;
-box-shadow:0 10px 35px rgba(0,0,0,0.4);
-}
-
-.product-details img{
-width:100%;
-height:340px;
-object-fit:cover;
-}
-
-.product-info{
-padding:20px;
-}
-
-.product-info h2{
-color:#6a00f4;
-margin-bottom:10px;
-}
-
-.product-price{
+.category-title{
+color:white;
 font-size:30px;
 font-weight:bold;
-color:#ff0080;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
-.product-description{
-line-height:1.8;
-color:#555;
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
 }
 
-.related-title{
-font-size:20px;
-font-weight:bold;
-margin-top:20px;
-margin-bottom:12px;
-color:#6a00f4;
-}
-
-.related-products{
-display:flex;
-gap:12px;
-overflow-x:auto;
-}
-
-.related-products::-webkit-scrollbar{
-display:none;
-}
-
-.related-card{
-min-width:130px;
-background:#f4f4f4;
-border-radius:18px;
+.type-card{
+background:white;
+border-radius:22px;
 overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
 }
 
-.related-card img{
+.type-card img{
 width:100%;
-height:120px;
+height:180px;
 object-fit:cover;
 }
 
-.related-card p{
-padding:10px;
-text-align:center;
-font-weight:bold;
-font-size:13px;
+.type-info{
+padding:12px;
 }
 
-.buy-btn{
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:linear-gradient(45deg,#ff6600,#ff0080);
-color:white;
+.type-info h3{
+color:#6a00f4;
+font-size:16px;
+margin-bottom:8px;
+}
+
+.type-info p{
 font-size:18px;
 font-weight:bold;
-cursor:pointer;
-margin-top:20px;
+color:#ff0080;
 }
 
 </style>
@@ -430,7 +305,9 @@ margin-top:20px;
 
 <div class="title">Royal Jewellery</div>
 
-<div class="subtitle">Create Premium Account</div>
+<div class="subtitle">
+Create Premium Account
+</div>
 
 <div class="input-box">
 <input type="text" id="signupName" placeholder="Full Name">
@@ -467,7 +344,9 @@ Already Have Account?
 
 <div class="title">Welcome Back</div>
 
-<div class="subtitle">Login To Continue</div>
+<div class="subtitle">
+Login To Continue
+</div>
 
 <div class="input-box">
 <input type="email" id="loginEmail" placeholder="Email">
@@ -490,9 +369,7 @@ Create New Account?
 
 <!-- HOME PAGE -->
 
-<div id="detailsPage">
-
-<!-- TOP -->
+<div id="homePage">
 
 <div class="top-bar">
 
@@ -500,75 +377,25 @@ Create New Account?
 <input type="text" placeholder="Search Jewellery...">
 </div>
 
-<div class="user-icon" onclick="toggleUser()">
-
+<div class="user-icon">
 👤
-
-<div class="user-card" id="userCard">
-
-<div class="user-header">
-
-<div class="user-avatar">
-👑
 </div>
 
+</div>
+
+<div class="location-box">
 <div>
-<div class="user-name">Parama Jyothi</div>
-<div class="user-number">+91 9876543210</div>
+<span>Deliver To</span>
+<h4>Tanuku, Andhra Pradesh - 534211</h4>
 </div>
-
 </div>
-
-<div class="user-menu">
-
-<div class="menu-item">🛍 My Orders</div>
-
-<div class="menu-item">❤ Wishlist</div>
-
-<div class="menu-item">📦 Saved Address</div>
-
-<div class="menu-item">⚙ Settings</div>
-
-<div class="menu-item logout" onclick="logout()">🚪 Logout</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- SMALL LOCATION -->
-
-<div class="mini-location">
-
-<div class="mini-left">
-📍
-</div>
-
-<div>
-
-<div class="mini-text">
-Deliver To
-</div>
-
-<div class="mini-place">
-Tanuku, Andhra Pradesh - 534211
-</div>
-
-</div>
-
-</div>
-
-<!-- HEADER -->
 
 <div class="header">
 <h1>💍 Royal Jewellery</h1>
 <p>Luxury Collections</p>
 </div>
 
-<!-- PRODUCTS -->
+<!-- SLIDER -->
 
 <div class="slider-container" id="slider">
 
@@ -576,25 +403,7 @@ Tanuku, Andhra Pradesh - 534211
 
 <!-- WATCHES -->
 
-<div class="card" onclick="openProduct(
-'Luxury Watches',
-'₹54,999',
-'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
-'Gold Luxury Watch',
-'Water Resistant',
-'Premium Diamond Finish',
-'Royal Collection',
-[
-'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?q=80&w=800&auto=format&fit=crop'
-],
-[
-'Luxury Watch',
-'Diamond Watch',
-'Gold Premium Watch'
-]
-)">
+<div class="card" onclick="openCategory('Luxury Watches')">
 
 <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop">
 
@@ -607,25 +416,7 @@ Tanuku, Andhra Pradesh - 534211
 
 <!-- CHAINS -->
 
-<div class="card" onclick="openProduct(
-'Gold Chains',
-'₹49,999',
-'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'22K Pure Gold',
-'Wedding Collection',
-'Premium Finish',
-'Lifetime Polish',
-[
-'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=800&auto=format&fit=crop'
-],
-[
-'Wedding Chain',
-'Pearl Chain',
-'Royal Gold Chain'
-]
-)">
+<div class="card" onclick="openCategory('Gold Chains')">
 
 <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
 
@@ -638,25 +429,7 @@ Tanuku, Andhra Pradesh - 534211
 
 <!-- RINGS -->
 
-<div class="card" onclick="openProduct(
-'Diamond Rings',
-'₹29,999',
-'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
-'Certified Diamond',
-'Luxury Ring',
-'Premium Shine',
-'Party Wear',
-[
-'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop'
-],
-[
-'Wedding Ring',
-'Luxury Ring',
-'Diamond Couple Ring'
-]
-)">
+<div class="card" onclick="openCategory('Diamond Rings')">
 
 <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop">
 
@@ -669,25 +442,7 @@ Tanuku, Andhra Pradesh - 534211
 
 <!-- EARRINGS -->
 
-<div class="card" onclick="openProduct(
-'Royal Earrings',
-'₹15,999',
-'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-'Wedding Earrings',
-'Luxury Design',
-'Premium Finish',
-'Party Collection',
-[
-'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1635767798638-3665c7a0d8ed?q=80&w=800&auto=format&fit=crop',
-'https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=800&auto=format&fit=crop'
-],
-[
-'Gold Earrings',
-'Diamond Earrings',
-'Royal Earrings'
-]
-)">
+<div class="card" onclick="openCategory('Royal Earrings')">
 
 <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop">
 
@@ -698,50 +453,77 @@ Tanuku, Andhra Pradesh - 534211
 
 </div>
 
+<!-- BANGLES -->
+
+<div class="card" onclick="openCategory('Luxury Bangles')">
+
+<img src="https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Luxury Bangles</h3>
+<div class="price">₹24,999</div>
+</div>
+
+</div>
+
+<!-- BRACELETS -->
+
+<div class="card" onclick="openCategory('Silver Bracelets')">
+
+<img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Silver Bracelets</h3>
+<div class="price">₹9,999</div>
+</div>
+
+</div>
+
+<!-- PEARLS -->
+
+<div class="card" onclick="openCategory('Pearl Sets')">
+
+<img src="https://images.unsplash.com/photo-1588444650733-d53dfc0c7bfb?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Pearl Sets</h3>
+<div class="price">₹39,999</div>
+</div>
+
+</div>
+
+<!-- NECKLACE -->
+
+<div class="card" onclick="openCategory('Wedding Necklace')">
+
+<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop">
+
+<div class="card-content">
+<h3>Wedding Necklace</h3>
+<div class="price">₹79,999</div>
 </div>
 
 </div>
 
 </div>
 
-<!-- PRODUCT PAGE -->
+</div>
 
-<div id="productPage">
+</div>
 
-<button class="back-btn" onclick="backHome()">
+<!-- CATEGORY PAGE -->
+
+<div id="categoryPage">
+
+<button class="back-btn" onclick="goBack()">
 ← Back
 </button>
 
-<div class="product-details">
-
-<img id="productImage">
-
-<div class="product-info">
-
-<h2 id="productTitle"></h2>
-
-<div class="product-price" id="productPrice"></div>
-
-<div class="product-description">
-
-<p id="d1"></p>
-<p id="d2"></p>
-<p id="d3"></p>
-<p id="d4"></p>
-
+<div class="category-title" id="categoryTitle">
+Luxury Watches
 </div>
 
-<div class="related-title">
-Related Products
-</div>
-
-<div class="related-products" id="relatedProducts"></div>
-
-<button class="buy-btn">
-Purchase Now
-</button>
-
-</div>
+<div class="grid" id="categoryGrid">
 
 </div>
 
@@ -767,6 +549,7 @@ SUPABASE_ANON_KEY
 function showLogin(){
 
 document.getElementById("signupPage").style.display="none";
+
 document.getElementById("loginPage").style.display="block";
 
 }
@@ -774,6 +557,7 @@ document.getElementById("loginPage").style.display="block";
 function showSignup(){
 
 document.getElementById("loginPage").style.display="none";
+
 document.getElementById("signupPage").style.display="block";
 
 }
@@ -782,13 +566,17 @@ document.getElementById("signupPage").style.display="block";
 
 async function signup(){
 
-const name=document.getElementById("signupName").value.trim();
+const name =
+document.getElementById("signupName").value.trim();
 
-const email=document.getElementById("signupEmail").value.trim();
+const email =
+document.getElementById("signupEmail").value.trim();
 
-const password=document.getElementById("signupPassword").value.trim();
+const password =
+document.getElementById("signupPassword").value.trim();
 
-const mobile=document.getElementById("signupMobile").value.trim();
+const mobile =
+document.getElementById("signupMobile").value.trim();
 
 if(name==="" || email==="" || password==="" || mobile===""){
 
@@ -838,9 +626,11 @@ alert("Signup Failed");
 
 async function login(){
 
-const email=document.getElementById("loginEmail").value.trim();
+const email =
+document.getElementById("loginEmail").value.trim();
 
-const password=document.getElementById("loginPassword").value.trim();
+const password =
+document.getElementById("loginPassword").value.trim();
 
 const { data } = await client
 .from("users")
@@ -854,7 +644,7 @@ document.getElementById("signupPage").style.display="none";
 
 document.getElementById("loginPage").style.display="none";
 
-document.getElementById("detailsPage").style.display="block";
+document.getElementById("homePage").style.display="block";
 
 }else{
 
@@ -864,97 +654,125 @@ alert("Invalid Email Or Password");
 
 }
 
-/* USER */
+/* CATEGORY PRODUCTS */
 
-function toggleUser(){
+const categoryProducts = {
 
-const card=document.getElementById("userCard");
+"Luxury Watches":[
 
-if(card.style.display==="block"){
+{
+img:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop",
+name:"Diamond Watch",
+price:"₹54,999"
+},
 
-card.style.display="none";
+{
+img:"https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop",
+name:"Gold Watch",
+price:"₹44,999"
+},
 
-}else{
-
-card.style.display="block";
-
+{
+img:"https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?q=80&w=800&auto=format&fit=crop",
+name:"Luxury Royal Watch",
+price:"₹64,999"
 }
 
+],
+
+"Gold Chains":[
+
+{
+img:"https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop",
+name:"Wedding Chain",
+price:"₹49,999"
+},
+
+{
+img:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop",
+name:"Pearl Gold Chain",
+price:"₹59,999"
+},
+
+{
+img:"https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=800&auto=format&fit=crop",
+name:"Royal Chain",
+price:"₹69,999"
 }
 
-/* LOGOUT */
+],
 
-function logout(){
+"Diamond Rings":[
 
-document.getElementById("detailsPage").style.display="none";
+{
+img:"https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop",
+name:"Wedding Ring",
+price:"₹29,999"
+},
 
-document.getElementById("loginPage").style.display="block";
+{
+img:"https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?q=80&w=800&auto=format&fit=crop",
+name:"Couple Ring",
+price:"₹19,999"
+},
 
+{
+img:"https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop",
+name:"Diamond Luxury Ring",
+price:"₹39,999"
 }
 
-/* PRODUCT PAGE */
+]
 
-function openProduct(
-title,
-price,
-image,
-d1,
-d2,
-d3,
-d4,
-relatedImages,
-relatedNames
-){
+};
 
-document.getElementById("detailsPage").style.display="none";
+/* OPEN CATEGORY */
 
-document.getElementById("productPage").style.display="block";
+function openCategory(name){
 
-document.getElementById("productTitle").innerHTML=title;
+document.getElementById("homePage").style.display="none";
 
-document.getElementById("productPrice").innerHTML=price;
+document.getElementById("categoryPage").style.display="block";
 
-document.getElementById("productImage").src=image;
+document.getElementById("categoryTitle").innerHTML=name;
 
-document.getElementById("d1").innerHTML="• "+d1;
+let html="";
 
-document.getElementById("d2").innerHTML="• "+d2;
+let products=categoryProducts[name] || [];
 
-document.getElementById("d3").innerHTML="• "+d3;
+products.forEach(item=>{
 
-document.getElementById("d4").innerHTML="• "+d4;
+html += `
 
-/* RELATED */
+<div class="type-card">
 
-let relatedHTML="";
+<img src="${item.img}">
 
-for(let i=0;i<relatedImages.length;i++){
+<div class="type-info">
 
-relatedHTML += `
+<h3>${item.name}</h3>
 
-<div class="related-card">
+<p>${item.price}</p>
 
-<img src="${relatedImages[i]}">
-
-<p>${relatedNames[i]}</p>
+</div>
 
 </div>
 
 `;
 
-}
+});
 
-document.getElementById("relatedProducts").innerHTML=relatedHTML;
+document.getElementById("categoryGrid").innerHTML=html;
 
 }
 
 /* BACK */
 
-function backHome(){
+function goBack(){
 
-document.getElementById("productPage").style.display="none";
+document.getElementById("categoryPage").style.display="none";
 
-document.getElementById("detailsPage").style.display="block";
+document.getElementById("homePage").style.display="block";
 
 }
 
