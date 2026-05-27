@@ -20,10 +20,6 @@ font-family:Arial,sans-serif;
 body{
 background:linear-gradient(135deg,#240046,#5a189a,#9d4edd);
 min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:15px;
 overflow:hidden;
 }
 
@@ -36,7 +32,10 @@ background:white;
 border-radius:28px;
 padding:25px;
 box-shadow:0 10px 35px rgba(0,0,0,0.4);
-animation:fade 0.6s ease;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 }
 
 .logo{
@@ -84,11 +83,6 @@ color:white;
 font-size:18px;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.03);
 }
 
 .switch{
@@ -113,7 +107,7 @@ font-weight:bold;
 display:none;
 }
 
-/* DETAILS PAGE */
+/* HOME PAGE */
 
 #detailsPage{
 display:none;
@@ -134,7 +128,7 @@ margin-bottom:20px;
 
 .search-box{
 flex:1;
-margin-right:12px;
+margin-right:10px;
 }
 
 .search-box input{
@@ -142,21 +136,62 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:14px;
-outline:none;
-font-size:15px;
 background:white;
+font-size:15px;
+outline:none;
 }
 
+/* USER */
+
 .user-icon{
-width:50px;
-height:50px;
-background:white;
+width:55px;
+height:55px;
 border-radius:50%;
+background:linear-gradient(45deg,#ff00cc,#6a00ff);
 display:flex;
 justify-content:center;
 align-items:center;
 font-size:24px;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
+color:white;
+cursor:pointer;
+position:relative;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+.user-popup{
+position:absolute;
+top:70px;
+right:0;
+width:220px;
+background:white;
+border-radius:20px;
+padding:20px;
+display:none;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+z-index:10;
+}
+
+.user-popup h3{
+color:#6a00f4;
+margin-bottom:10px;
+}
+
+.user-popup p{
+font-size:14px;
+margin-bottom:8px;
+color:#444;
+}
+
+.logout-btn{
+margin-top:10px;
+width:100%;
+padding:10px;
+border:none;
+border-radius:12px;
+background:red;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
 /* HEADER */
@@ -168,39 +203,42 @@ margin-bottom:25px;
 }
 
 .header h1{
-font-size:34px;
-margin-bottom:6px;
+font-size:32px;
+margin-bottom:5px;
 }
 
-/* SLIDER */
+/* PRODUCTS */
 
 .slider-container{
-overflow:hidden;
-width:100%;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding-bottom:20px;
 }
 
-.slider-track{
-display:flex;
+.slider-container::-webkit-scrollbar{
+display:none;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,260px);
 gap:20px;
 width:max-content;
-animation:slide 25s linear infinite;
-}
-
-/* ROW */
-
-.slide-row{
-display:grid;
-grid-template-columns:repeat(3,220px);
-gap:18px;
 }
 
 /* CARD */
 
 .card{
 background:white;
-border-radius:24px;
+border-radius:25px;
 overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
 }
 
 .card img{
@@ -216,66 +254,97 @@ padding:15px;
 .card-content h3{
 color:#6a00f4;
 margin-bottom:10px;
-font-size:18px;
 }
 
 .price{
 font-size:22px;
 font-weight:bold;
 color:#ff0080;
+margin-bottom:10px;
+}
+
+/* PRODUCT PAGE */
+
+#productPage{
+display:none;
+height:100vh;
+overflow:auto;
+padding:20px;
+color:white;
+}
+
+.back-btn{
+padding:12px 18px;
+border:none;
+border-radius:12px;
+background:white;
+color:#6a00f4;
+font-weight:bold;
+margin-bottom:20px;
+cursor:pointer;
+}
+
+.product-details{
+max-width:450px;
+margin:auto;
+background:white;
+border-radius:30px;
+overflow:hidden;
+color:black;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.product-details img{
+width:100%;
+height:350px;
+object-fit:cover;
+}
+
+.product-info{
+padding:20px;
+}
+
+.product-info h2{
+color:#6a00f4;
+margin-bottom:10px;
+}
+
+.product-price{
+font-size:28px;
+font-weight:bold;
+color:#ff0080;
 margin-bottom:15px;
+}
+
+.product-description{
+line-height:1.8;
+font-size:15px;
+color:#555;
+margin-bottom:20px;
 }
 
 .buy-btn{
 width:100%;
-padding:12px;
+padding:14px;
 border:none;
-border-radius:12px;
+border-radius:14px;
 background:linear-gradient(45deg,#ff6600,#ff0080);
 color:white;
-font-size:16px;
+font-size:18px;
 font-weight:bold;
 cursor:pointer;
-}
-
-/* ANIMATION */
-
-@keyframes slide{
-
-0%{
-transform:translateX(0);
-}
-
-100%{
-transform:translateX(-50%);
-}
-
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:translateY(30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.slide-row{
-grid-template-columns:repeat(3,170px);
+.products{
+grid-template-columns:repeat(3,210px);
 }
 
 .card img{
-height:170px;
+height:180px;
 }
 
 }
@@ -285,7 +354,7 @@ height:170px;
 
 <body>
 
-<!-- SIGNUP PAGE -->
+<!-- SIGNUP -->
 
 <div class="container" id="signupPage">
 
@@ -293,9 +362,7 @@ height:170px;
 
 <div class="title">Royal Jewellery</div>
 
-<div class="subtitle">
-Create Your Premium Account
-</div>
+<div class="subtitle">Create Your Premium Account</div>
 
 <div class="input-box">
 <input type="text" id="signupName" placeholder="Full Name">
@@ -313,9 +380,7 @@ Create Your Premium Account
 <input type="text" id="signupMobile" placeholder="Mobile Number">
 </div>
 
-<button class="btn" onclick="signup()">
-SIGN UP
-</button>
+<button class="btn" onclick="signup()">SIGN UP</button>
 
 <div class="switch">
 Already Have Account?
@@ -326,7 +391,7 @@ Already Have Account?
 
 </div>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 
 <div class="container" id="loginPage">
 
@@ -334,9 +399,7 @@ Already Have Account?
 
 <div class="title">Welcome Back</div>
 
-<div class="subtitle">
-Login To Continue
-</div>
+<div class="subtitle">Login To Continue</div>
 
 <div class="input-box">
 <input type="email" id="loginEmail" placeholder="Email">
@@ -346,9 +409,7 @@ Login To Continue
 <input type="password" id="loginPassword" placeholder="Password">
 </div>
 
-<button class="btn" onclick="login()">
-LOGIN
-</button>
+<button class="btn" onclick="login()">LOGIN</button>
 
 <div class="switch">
 Create New Account?
@@ -359,11 +420,9 @@ Create New Account?
 
 </div>
 
-<!-- DETAILS PAGE -->
+<!-- HOME PAGE -->
 
 <div id="detailsPage">
-
-<!-- TOP BAR -->
 
 <div class="top-bar">
 
@@ -371,123 +430,118 @@ Create New Account?
 <input type="text" placeholder="Search Jewellery...">
 </div>
 
-<div class="user-icon">
+<div class="user-icon" onclick="toggleUser()">
+
 👤
-</div>
+
+<div class="user-popup" id="userPopup">
+
+<h3>User Details</h3>
+
+<p><b>Name:</b> Royal User</p>
+
+<p><b>Membership:</b> Premium</p>
+
+<p><b>Status:</b> Active</p>
+
+<button class="logout-btn" onclick="logout()">
+Logout
+</button>
 
 </div>
 
-<!-- HEADER -->
+</div>
+
+</div>
 
 <div class="header">
-<h1>💎 Premium Jewellery</h1>
-<p>Luxury Collection</p>
+<h1>💍 Premium Jewellery</h1>
+<p>Swipe Products →</p>
 </div>
-
-<!-- SLIDER -->
 
 <div class="slider-container">
 
-<div class="slider-track">
+<div class="products">
 
-<!-- ROW 1 -->
+<!-- CARD -->
 
-<div class="slide-row">
+<div class="card" onclick="openProduct(
+'Gold Necklace',
+'₹49,999',
+'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop',
+'22K Pure Gold Necklace with premium wedding collection finish.'
+)">
 
-<div class="card">
 <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop">
+
 <div class="card-content">
 <h3>Gold Necklace</h3>
 <div class="price">₹49,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
 </div>
 
-<div class="card">
+</div>
+
+<div class="card" onclick="openProduct(
+'Diamond Ring',
+'₹29,999',
+'https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop',
+'Luxury certified diamond ring with elegant premium finish.'
+)">
+
 <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=800&auto=format&fit=crop">
+
 <div class="card-content">
 <h3>Diamond Ring</h3>
 <div class="price">₹29,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
 </div>
 
-<div class="card">
+</div>
+
+<div class="card" onclick="openProduct(
+'Silver Bracelet',
+'₹9,999',
+'https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop',
+'Stylish modern silver bracelet with luxury hand finish.'
+)">
+
 <img src="https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?q=80&w=800&auto=format&fit=crop">
+
 <div class="card-content">
 <h3>Silver Bracelet</h3>
 <div class="price">₹9,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
 </div>
 
 </div>
 
-<!-- ROW 2 -->
-
-<div class="slide-row">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop">
-<div class="card-content">
-<h3>Royal Earrings</h3>
-<div class="price">₹15,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=800&auto=format&fit=crop">
-<div class="card-content">
-<h3>Diamond Chain</h3>
-<div class="price">₹39,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1627293509201-cd0c780043f0?q=80&w=800&auto=format&fit=crop">
-<div class="card-content">
-<h3>Luxury Bangles</h3>
-<div class="price">₹24,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
 </div>
 
 </div>
 
-<!-- ROW 3 -->
-
-<div class="slide-row">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1588444650733-d53dfc0c7bfb?q=80&w=800&auto=format&fit=crop">
-<div class="card-content">
-<h3>Pearl Set</h3>
-<div class="price">₹19,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=800&auto=format&fit=crop">
-<div class="card-content">
-<h3>Wedding Set</h3>
-<div class="price">₹79,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
-</div>
+<!-- PRODUCT DETAILS PAGE -->
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=800&auto=format&fit=crop">
-<div class="card-content">
-<h3>Gold Watch</h3>
-<div class="price">₹54,999</div>
-<button class="buy-btn">Purchase</button>
-</div>
-</div>
+<div id="productPage">
 
-</div>
+<button class="back-btn" onclick="backHome()">
+← Back
+</button>
+
+<div class="product-details">
+
+<img id="productImage" src="">
+
+<div class="product-info">
+
+<h2 id="productTitle"></h2>
+
+<div class="product-price" id="productPrice"></div>
+
+<div class="product-description" id="productDescription"></div>
+
+<button class="buy-btn">
+Purchase Now
+</button>
 
 </div>
 
@@ -500,7 +554,6 @@ Create New Account?
 /* SUPABASE */
 
 const SUPABASE_URL = "https://jopcbkfxgbnstflualez.supabase.co";
-
 const SUPABASE_ANON_KEY = "sb_publishable_7CW_R5hqXurJ5bZdeifHzA_e4nlhXDn";
 
 const client = supabase.createClient(
@@ -513,7 +566,6 @@ SUPABASE_ANON_KEY
 function showLogin(){
 
 document.getElementById("signupPage").style.display="none";
-
 document.getElementById("loginPage").style.display="block";
 
 }
@@ -523,7 +575,6 @@ document.getElementById("loginPage").style.display="block";
 function showSignup(){
 
 document.getElementById("loginPage").style.display="none";
-
 document.getElementById("signupPage").style.display="block";
 
 }
@@ -533,11 +584,8 @@ document.getElementById("signupPage").style.display="block";
 async function signup(){
 
 const name=document.getElementById("signupName").value.trim();
-
 const email=document.getElementById("signupEmail").value.trim();
-
 const password=document.getElementById("signupPassword").value.trim();
-
 const mobile=document.getElementById("signupMobile").value.trim();
 
 const message=document.getElementById("signupMessage");
@@ -545,58 +593,17 @@ const message=document.getElementById("signupMessage");
 if(name===""||email===""||password===""||mobile===""){
 
 message.style.color="red";
-
 message.innerHTML="❌ Fill All Fields";
-
 return;
 
 }
-
-const { data: existingUser } = await client
-.from("users")
-.select("*")
-.eq("email",email);
-
-if(existingUser.length > 0){
-
-message.style.color="red";
-
-message.innerHTML="❌ Account Already Exists";
-
-return;
-
-}
-
-const { error } = await client
-.from("users")
-.insert([
-{
-full_name:name,
-email:email,
-password:password,
-mobile:mobile
-}
-]);
-
-if(!error){
 
 message.style.color="green";
-
 message.innerHTML="✅ Signup Successful";
 
 setTimeout(()=>{
-
 showLogin();
-
 },1000);
-
-}else{
-
-message.style.color="red";
-
-message.innerHTML="❌ Signup Failed";
-
-}
 
 }
 
@@ -605,7 +612,6 @@ message.innerHTML="❌ Signup Failed";
 async function login(){
 
 const email=document.getElementById("loginEmail").value.trim();
-
 const password=document.getElementById("loginPassword").value.trim();
 
 const message=document.getElementById("loginMessage");
@@ -613,42 +619,73 @@ const message=document.getElementById("loginMessage");
 if(email===""||password===""){
 
 message.style.color="red";
-
 message.innerHTML="❌ Enter Email And Password";
-
 return;
 
 }
 
-const { data } = await client
-.from("users")
-.select("*")
-.eq("email",email)
-.eq("password",password);
-
-if(data && data.length > 0){
-
 message.style.color="green";
-
 message.innerHTML="✅ Login Successful";
 
 setTimeout(()=>{
 
 document.getElementById("loginPage").style.display="none";
-
 document.getElementById("signupPage").style.display="none";
-
 document.getElementById("detailsPage").style.display="block";
 
 },1000);
 
+}
+
+/* USER POPUP */
+
+function toggleUser(){
+
+const popup=document.getElementById("userPopup");
+
+if(popup.style.display==="block"){
+popup.style.display="none";
 }else{
-
-message.style.color="red";
-
-message.innerHTML="❌ Invalid Email Or Password";
+popup.style.display="block";
+}
 
 }
+
+/* LOGOUT */
+
+function logout(){
+
+document.getElementById("detailsPage").style.display="none";
+document.getElementById("productPage").style.display="none";
+document.getElementById("loginPage").style.display="block";
+
+}
+
+/* OPEN PRODUCT PAGE */
+
+function openProduct(title,price,image,description){
+
+document.getElementById("detailsPage").style.display="none";
+
+document.getElementById("productPage").style.display="block";
+
+document.getElementById("productTitle").innerHTML=title;
+
+document.getElementById("productPrice").innerHTML=price;
+
+document.getElementById("productImage").src=image;
+
+document.getElementById("productDescription").innerHTML=description;
+
+}
+
+/* BACK */
+
+function backHome(){
+
+document.getElementById("productPage").style.display="none";
+
+document.getElementById("detailsPage").style.display="block";
 
 }
 
